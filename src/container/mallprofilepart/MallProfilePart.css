@@ -1,0 +1,76 @@
+.mallpp_main_wrapp {
+    margin: 2rem;
+    /* display: flex; */
+    /* align-items: flex-start; */
+    /* justify-content: flex-start; */
+}
+
+.mall_part_1_heading {
+    font-size: 40px;
+    font-weight: 800;
+    color: var(--color-black);
+    margin-bottom: 1rem;
+}
+
+.mallpp_sigle_list {
+    list-style: inside;
+    font-size: 1rem;
+    color: var(--color-black);
+    line-height: 1.5rem;
+}
+
+.mallpp_sigle_list>button {
+    color: var(--color-orange);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.mallpp_part2 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+    margin: 2rem 0;
+}
+
+.mallpp_part2_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 285.5px;
+    height: 169.6px;
+    gap: 0.5rem;
+    padding: 14px;
+}
+
+.mallpp_part2_card_heading {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--color-white);
+}
+
+.mallpp_part2_card_description {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--color-white);
+}
+
+.mallpp_part2-mall-side-max-width {
+    max-width: 1180px;
+}
+
+@media (max-width: 768px) {
+
+    .mallpp_main_wrapp {
+        margin: 4.2rem 1rem 2rem 1rem;
+    }
+
+    .mallpp_part2 {
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,20 @@
+.radio-btn-flex-gap {
+    gap: 25px;
+}
+
+.radio-btn-flex-brand {
+    display: flex;
+    gap: 50px;
+}
+
+.course-form-txt {
+    font-size: 14px;
+    font-weight: 300;
+}
+
+/* Multi Select Color Change */
+
+.css-13cymwt-control {
+    background-color: transparent !important;
+    border: none !important;
+}
