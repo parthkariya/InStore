@@ -54,7 +54,7 @@ const CutomerMallEvents = ({ getsingalmalldata }) => {
   return (
     <div>
       {/* <CustomerHero getsingalmalldata={getsingalmalldata} /> */}
-      <CustomerHeroSecond />
+      <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
       <div className="mm_main_wrapp">
         {/* heading */}
         <div className="profile_head_center">

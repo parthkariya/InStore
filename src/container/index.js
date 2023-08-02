@@ -74,6 +74,10 @@ import MallAddMvie from "./malladdmovie/MallAddMvie";
 // 14-7-23
 import RetailerTypeSheet from "./retailertypesheet/RetailerTypeSheet";
 
+// 25-7-23
+import UploadMultipleBrand from "./uploadmultiplebrand/UploadMultipleBrand";
+import UploadEateryDirectory from "./uploadeaterydirectory/UploadEateryDirectory";
+
 export {
   HomeHero,
   WelcomeStore,
@@ -148,4 +152,10 @@ export {
   MallEditMovie,
   MallAddMvie,
   RetailerTypeSheet,
+
+  // 25-7-23
+  UploadMultipleBrand,
+
+  // 26-7-23
+  UploadEateryDirectory,
 };

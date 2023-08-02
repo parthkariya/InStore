@@ -11,6 +11,9 @@ import { Link } from "react-router-dom";
 import { useStoreContext } from "../../context/store_context";
 import { ACCEPT_HEADER, get_store_mall_wise } from "../../utils/Constant";
 import axios from "axios";
+import Notification from "../../utils/Notification"
+
+
 
 const StoresData = [
   {
@@ -147,6 +150,9 @@ const StoreDirectory = ({
       if (data) {
         if (data.success === 1) {
           console.log("mall-data", data);
+          setIsOpen(false);
+
+          Notification("success", "Success!", "Brand Deleted Successfully!");
           setTab(3);
           // getStore();
         }
@@ -255,7 +261,7 @@ const StoreDirectory = ({
               <button
                 className="sd_modal_edit_btn_wrapp"
                 onClick={() => {
-                  setTab(9);
+                  // setTab(9);
                   setStore_id(getsingleStoreData.id);
                   DeleteMallStoreData();
                 }}

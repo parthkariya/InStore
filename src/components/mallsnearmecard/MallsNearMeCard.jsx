@@ -97,9 +97,9 @@ const MallsNearMeCard = ({ setTab, item, SetSingalMallData, getMallList }) => {
           />
           <img
             src={
-              item.shopping_center_thumbnail_mall_path === null
+              item.shopping_center_logo_mall_path === null
                 ? images.mall_hero_logo
-                : item.shopping_center_thumbnail_mall_path
+                : item.shopping_center_logo_mall_path
             }
             className="mallnearme-card-logo-img"
           />
@@ -180,7 +180,7 @@ const MallsNearMeCard = ({ setTab, item, SetSingalMallData, getMallList }) => {
                 <a className="signup_terms_link">Privacy Policy</a>
               </p>
             </div>
-            <button className="signup_model_forgate">Forgate password?</button>
+            <button className="signup_model_forgate">Forgot password?</button>
           </div>
           <button
             className="btn btn-orange mb_16"

@@ -6,7 +6,7 @@ import { CustomerHeroSecond } from '../../components'
 const CustomerMallMap = ({ getsingalmalldata, setTab }) => {
     return (
         <div>
-            <CustomerHeroSecond />
+            <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
             <div className="mm_main_wrapp">
                 <div className="profile_head_center" style={{ marginTop: "20px", marginBottom: "20px" }}>
                     <h4 className="h3" style={{ textTransform: "capitalize" }}>V&A Waterfront map </h4>

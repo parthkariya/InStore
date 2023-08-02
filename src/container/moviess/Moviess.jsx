@@ -3,7 +3,7 @@ import { CustomerHero, CustomerHeroSecond, MoviesCard } from "../../components";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BsArrowRight } from "react-icons/bs";
 import "./Moviess.css";
-import { ACCEPT_HEADER, get_movie_list } from "../../utils/Constant";
+import { ACCEPT_HEADER, get_mall_movie_customer, get_movie_list } from "../../utils/Constant";
 import axios from "axios";
 
 const Moviess = ({ setTab, getsingalmalldata }) => {
@@ -18,8 +18,12 @@ const Moviess = ({ setTab, getsingalmalldata }) => {
         SetLoading(true);
         const token = JSON.parse(localStorage.getItem("is_token"));
 
+        const formdata = new FormData();
+        // await formdata.append("search", "");
+        await formdata.append("mall_id", getsingalmalldata.id);
+
         axios
-            .get(get_movie_list, {
+            .post(get_mall_movie_customer, formdata, {
                 headers: {
                     Accept: ACCEPT_HEADER,
                     Authorization: "Bearer " + token,
@@ -45,7 +49,7 @@ const Moviess = ({ setTab, getsingalmalldata }) => {
         <div>
             <div>
                 {/* <CustomerHero getsingalmalldata={getsingalmalldata} /> */}
-                <CustomerHeroSecond />
+                <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
                 <div className="mm_main_wrapp">
                     <div className="profile_head_center movies-cus-head">
                         <h4 className="h3" style={{ textTransform: "capitalize" }}>

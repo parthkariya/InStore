@@ -59,9 +59,17 @@
     color: var(--color-white);
 }
 
-.mallpp_part2-mall-side-max-width {
-    max-width: 1180px;
+.mall-profile-gap {
+    margin-bottom: 3rem;
 }
+
+
+@media screen and (max-width: 1445px) {
+    .mallpp_part2-mall-side-max-width {
+        max-width: 1180px;
+    }
+}
+
 
 @media (max-width: 768px) {
 

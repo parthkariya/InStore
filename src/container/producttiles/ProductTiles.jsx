@@ -386,8 +386,8 @@ const ProductTiles = ({ get_mall_auth_data, setTab, getTab }) => {
                         {/* LeaderBoard Card Component end */}
 
                         {/* LeaderBoard Add New Button start */}
+                        {getliast.length > 0 ? <button onClick={() => setTab(23)} className='leaderboard-btn'>Add new <img src={images.add_new} className="leaderboard-btn-icon" /></button> : null}
 
-                        <button onClick={() => setTab(23)} className='leaderboard-btn'>Add new <img src={images.add_new} className="leaderboard-btn-icon" /></button>
 
                         {/* LeaderBoard Add New Button end */}
 

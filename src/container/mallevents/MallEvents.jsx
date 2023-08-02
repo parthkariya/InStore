@@ -10,6 +10,7 @@ import { BsChevronDown } from 'react-icons/bs';
 const MallEvents = ({ setTab, setEventId, eventList, setEventList, totalPages, setTotalPages, page, setPage, loading, EventApi }) => {
   useEffect(() => {
     console.log("EventApi", EventApi);
+    EventApi();
   }, []);
 
   const { get_mall_auth_data, get_mall_store_data, DeleteEventApi } = useMallContext();

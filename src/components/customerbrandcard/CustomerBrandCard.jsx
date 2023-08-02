@@ -10,7 +10,7 @@ import {
 } from "../../utils/Constant";
 import axios from "axios";
 
-const CustomerBrandCard = ({ data, getmovieapi, replce, mainitem, getWishlist }) => {
+const CustomerBrandCard = ({ data, getmovieapi, replce, mainitem, getWishlist, getid }) => {
   useEffect(() => { console.log("=>", data); }, []);
 
   const [getlist, SetList] = useState([]);
@@ -33,7 +33,7 @@ const CustomerBrandCard = ({ data, getmovieapi, replce, mainitem, getWishlist })
       .then((res) => {
         console.log("ggg", JSON.stringify(res.data, null, 2));
         if (res.data.success == 1) {
-          getmovieapi();
+          getmovieapi(getid);
           SetLoading(false);
         } else {
           null;
@@ -100,7 +100,7 @@ const CustomerBrandCard = ({ data, getmovieapi, replce, mainitem, getWishlist })
                 <button
                   className="cbc_card_hart_icon"
                   onClick={() => {
-                    getmovielist();
+                    getmovielist(getid);
                   }}
                 >
                   <FiHeart size={20} />

@@ -6,6 +6,7 @@
     /* max-width: var(--max-width); */
     margin: 0 auto;
     min-height: 80vh;
+    align-items: stretch;
 }
 
 .profile_sidebar_wrapp {
@@ -16,6 +17,8 @@
     align-self: start;
     position: sticky;
     top: 5rem;
+    height: 100vh;
+    background-color: #E5E4E2;
 }
 
 .profile_main_sec_wrapp {
@@ -45,7 +48,7 @@
 .profile_sidebar_sig_btn_right_arrow {
     position: absolute;
     /* right: -29px; */
-    left: 401px;
+    left: 100.5%;
     top: 0px;
     padding: 4px;
     background: var(--color-orange);
@@ -71,6 +74,10 @@
 .profile_sidebar_sig_btn:hover {
     font-weight: 700 !important;
     background: var(--color-orange) !important;
+}
+
+.profilepage_slider_transition {
+    transition: all 10s ease-in-out;
 }
 
 

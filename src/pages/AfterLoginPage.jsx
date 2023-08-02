@@ -17,6 +17,12 @@ import { useMallContext } from "../context/mall_context";
 import { ACCEPT_HEADER, get_mall, get_mall_master } from "../utils/Constant";
 import axios from "axios";
 import { RetailerPageNavbar } from "../components";
+import makeAnimated from "react-select/animated";
+import Select from "react-select";
+const animatedComponents = makeAnimated();
+
+
+
 
 const AfterLoginPage = () => {
   const { setLogin } = useAuthContext();
@@ -41,6 +47,8 @@ const AfterLoginPage = () => {
   const [getcondation, SetCondation] = useState(false);
   const [getgender, setGender] = useState("");
   const [getmallmasterid, setmallmasterid] = useState("");
+  const [mallsOption, setMallsOption] = useState([]);
+
 
   const [profile, setProfile] = useState("");
   const [isAcceptTerm, setIsAcceptTerm] = useState(false);
@@ -208,8 +216,8 @@ const AfterLoginPage = () => {
       return;
     } else {
       var params = {
-        // mall_id: getmallname,
-        mall_master_id: getmallmasterid,
+        mall_id: getmallmasterid,
+        // mall_master_id: getmallmasterid,
         retailer_id: retailertype,
         store_type: getgender,
         brand: getmallname,
@@ -384,7 +392,7 @@ const AfterLoginPage = () => {
                 getmallarray.map((item, index) => {
                   return (
                     <>
-                      {/* <option selected disabled value=""></option> */}
+                      <option selected disabled value=""></option>
                       <option value={item.id} key={index}>
                         {item.name} {item.id} &nbsp;&nbsp;&nbsp; {item.from_date}{" "}
                         &nbsp;&nbsp;&nbsp; {item.to_date}
@@ -394,6 +402,20 @@ const AfterLoginPage = () => {
                 })}
 
             </select>
+
+            {/* <Select
+              value={mallsOption}
+              styles={{ width: "100%", padding: "0px" }}
+              className="leaderboard-card-inp"
+              closeMenuOnSelect={false}
+              components={animatedComponents}
+              // defaultValue={[colourOptions[4], colourOptions[5]]}
+              placeholder=""
+              isMulti
+              // options={multiple_week_data}
+              onChange={setMallsOption}
+            /> */}
+
           </div>
           <div className="sign_input_wrapp sign_input_wrapp_padding_less">
             <label htmlFor="mall">Retailer Name</label>
@@ -620,7 +642,7 @@ const AfterLoginPage = () => {
                 <a className="signup_terms_link">Privacy Policy</a>
               </p>
             </div>
-            <button className="signup_model_forgate">Forgate password?</button>
+            <button className="signup_model_forgate">Forgot password?</button>
           </div>
           <button
             className="btn btn-orange mb_16"

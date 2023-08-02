@@ -6,8 +6,10 @@ import axios from "axios";
 import { ACCEPT_HEADER, dowmtemp, uploadfile } from "../../utils/Constant";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import Notification from "../../utils/Notification";
+import { IoChevronBack } from "react-icons/io5";
+import { MallHero } from "../../components";
 
-const UploadStoreDirectory = ({ getsingleStoreData, get_mall_auth_data }) => {
+const UploadStoreDirectory = ({ getsingleStoreData, get_mall_auth_data, setTab }) => {
   const [geturl, SetUrl] = useState("");
   const [files, setFiles] = useState([]);
   const [filename, SetFileName] = useState("");
@@ -102,129 +104,133 @@ const UploadStoreDirectory = ({ getsingleStoreData, get_mall_auth_data }) => {
     });
 
   return (
-    <div className="mm_main_wrapp">
-      <div className="mall_name_wrapp">
-        <p className="mall_name_heading">
-          {get_mall_auth_data.name && get_mall_auth_data.name} :
-        </p>
-        <span>Upload Mall Retailers</span>
-      </div>
-      <div className="mm_horizontal_line"></div>
-      <div className="store-directory-card">
-        <div className="store-directory-part1">
-          <div className="store-directory-first-inner-part1">
-            <p className="store-dire-head">
-              How to upload an Excel file and display it via the spreadsheet
-              control
-            </p>
-            <ul>
-              <li>
-                Download the In-store{" "}
-                <span
-                  style={{
-                    color: "var(--color-orange)",
-                    fontWeight: "600",
-                    cursor: "pointer",
-                  }}
-                >
-                  Excel template
-                </span>{" "}
-                file below
-              </li>
-              <li>Add your data to the In-Store Excel file</li>
-              <li>Save your Excel file with the shopping centre/Mall name</li>
-              <li>Upload it for processing</li>
-            </ul>
-          </div>
-          <div className="store-directory-first-inner-part2">
-            <button
-              className="btn btn-orange"
-              onClick={() => {
-                DownTemp();
-              }}
-            >
-              Download Template
-            </button>
-          </div>
-          {/* <p className="update-details-txt">Drag and drop the Event <br /> image here (250 x 250)</p>
-           */}
+    <>
+      <MallHero get_mall_auth_data={get_mall_auth_data} />
+      <div className="mm_main_wrapp">
+        <div className='edit-brand-back-iconbox' onClick={() => setTab(3)}><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div>
+        <div className="mall_name_wrapp">
+          <p className="mall_name_heading">
+            {get_mall_auth_data.name && get_mall_auth_data.name} :
+          </p>
+          <span>Upload Mall Retailers</span>
         </div>
-        {load === true ? (
-          <div
-            style={{
-              width: "100%",
-              height: "10vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="loader"></div>
-          </div>
-        ) : (
-          <div style={{ width: "100%" }} {...getRootlogoProps()}>
-            <div className="store-directory-part2">
-              <AiOutlineCloudUpload
-                style={{
-                  width: "60px",
-                  height: "60px",
-                  color: "var(--color-orange)",
-                  marginBottom: "10px",
+        <div className="mm_horizontal_line"></div>
+        <div className="store-directory-card">
+          <div className="store-directory-part1">
+            <div className="store-directory-first-inner-part1">
+              <p className="store-dire-head">
+                How to upload an Excel file and display it via the spreadsheet
+                control
+              </p>
+              <ul>
+                <li>
+                  Download the In-store{" "}
+                  <span
+                    style={{
+                      color: "var(--color-orange)",
+                      fontWeight: "600",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Excel template
+                  </span>{" "}
+                  file below
+                </li>
+                <li>Add your data to the In-Store Excel file</li>
+                <li>Save your Excel file with the shopping centre/Mall name</li>
+                <li>Upload it for processing</li>
+              </ul>
+            </div>
+            <div className="store-directory-first-inner-part2">
+              <button
+                className="btn btn-orange"
+                onClick={() => {
+                  DownTemp();
                 }}
-              />
-
-              <h4 className="">.ELSX .CVS</h4>
-              <p className="">You can also upload files by</p>
-              {filename === "" ? null : <p> {filename} </p>}
-              <input
-                {...getInputlogoProps()}
-                type="file"
-                name="xlsFile"
-                id="xlsFile"
-                accept=".xls, .xlsx"
-              />
-              <button type="button" className="click_upload_btn">
-                clicking here
+              >
+                Download Template
               </button>
             </div>
+            {/* <p className="update-details-txt">Drag and drop the Event <br /> image here (250 x 250)</p>
+           */}
           </div>
-        )}
-        <div className="store-directory-part3">
-          <div className="store-directory-third-inner-part1">
-            <button
+          {load === true ? (
+            <div
               style={{
-                color: "var(--color-orange",
-                cursor: "pointer",
-                fontSize: "18px",
-                fontWeight: "600",
-              }}
-            //   onClick={() => setIsOpen(true)}
-            ></button>
-          </div>
-          {load === true ? null : (
-            <button
-              className="btn btn-orange mb-10"
-              onClick={() => {
-                Uploadfile();
+                width: "100%",
+                height: "10vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
-              Upload File
-            </button>
+              <div className="loader"></div>
+            </div>
+          ) : (
+            <div style={{ width: "100%" }} {...getRootlogoProps()}>
+              <div className="store-directory-part2">
+                <AiOutlineCloudUpload
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    color: "var(--color-orange)",
+                    marginBottom: "10px",
+                  }}
+                />
+
+                <h4 className="">.ELSX .CVS</h4>
+                <p className="">You can also upload files by</p>
+                {filename === "" ? null : <p> {filename} </p>}
+                <input
+                  {...getInputlogoProps()}
+                  type="file"
+                  name="xlsFile"
+                  id="xlsFile"
+                  accept=".xls, .xlsx"
+                />
+                <button type="button" className="click_upload_btn">
+                  clicking here
+                </button>
+              </div>
+            </div>
           )}
-        </div>
-        <div className="store-directory-part4">
-          <button
-            className="btn btn-blue"
-            onClick={() => {
-              SetFileName("");
-              setFiles([]);
-            }}
-          >
-            Cancel
-          </button>
+          <div className="store-directory-part3">
+            <div className="store-directory-third-inner-part1">
+              <button
+                style={{
+                  color: "var(--color-orange",
+                  cursor: "pointer",
+                  fontSize: "18px",
+                  fontWeight: "600",
+                }}
+              //   onClick={() => setIsOpen(true)}
+              ></button>
+            </div>
+            {load === true ? null : (
+              <button
+                className="btn btn-orange mb-10"
+                onClick={() => {
+                  Uploadfile();
+                }}
+              >
+                Upload File
+              </button>
+            )}
+          </div>
+          <div className="store-directory-part4">
+            <button
+              className="btn btn-blue"
+              onClick={() => {
+                SetFileName("");
+                setFiles([]);
+              }}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -126,34 +126,51 @@ const AddPromotionBannerCard = ({ openMallModal, setTab, gateweek, seteweek, peo
 
         console.log("test");
 
-        const formdata = await new FormData();
-        // await formdata.append("id", item.id)
-        await formdata.append("title", title)
-        for (var i = 0; i < regionidarray.length; i++) {
-            await formdata.append("region_id[" + i + "]", regionidarray[i].id);
-        }
-        for (var i = 0; i < mallidarray.length; i++) {
-            await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
-        }
-        await formdata.append("brand_id", BrandName)
-        await formdata.append("category_id", Category)
-        await formdata.append("week_id", gateweek)
-        await formdata.append("region_child_id[0]", "")
-        await formdata.append("region_child_id[1]", "")
-        if (files[0] !== undefined) {
-            await formdata.append("image", files[0]);
-        }
+        if (title == "" || undefined) {
+            Notification("error", "Error!", "Please Enter Title!");
+            return;
+        } else if (mallidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Mall!");
+        } else if (regionidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Region!");
+        } else if (gatweek == "" || undefined) {
+            Notification("error", "Error!", "Please Select Week!");
+        } else if (BrandName == "" || undefined) {
+            Notification("error", "Error!", "Please Select Brand!");
+        } else if (Category == "" || undefined) {
+            Notification("error", "Error!", "Please Select Category!");
+        } else {
+
+            const formdata = await new FormData();
+            // await formdata.append("id", item.id)
+            await formdata.append("title", title)
+            for (var i = 0; i < regionidarray.length; i++) {
+                await formdata.append("region_id[" + i + "]", regionidarray[i].id);
+            }
+            for (var i = 0; i < mallidarray.length; i++) {
+                await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
+            }
+            await formdata.append("brand_id", BrandName)
+            await formdata.append("category_id", Category)
+            await formdata.append("week_id", gateweek)
+            await formdata.append("region_child_id[0]", "")
+            await formdata.append("region_child_id[1]", "")
+            if (files[0] !== undefined) {
+                await formdata.append("image", files[0]);
+            }
 
 
 
-        console.log("-=-=-=->", formdata);
-        const data = await CreatePromotionBoardApi(formdata);
-        if (data) {
-            if (data.success === 1) {
-                console.log("category-data", data);
-                setTab(1);
-                // getLeaderboard();
-                // window.location.reload();
+            console.log("-=-=-=->", formdata);
+            const data = await CreatePromotionBoardApi(formdata);
+            if (data) {
+                if (data.success === 1) {
+                    console.log("category-data", data);
+                    Notification("success", "Success!", "Promotion Banner Added Successfully!");
+                    setTab(1);
+                    // getLeaderboard();
+                    // window.location.reload();
+                }
             }
         }
     }

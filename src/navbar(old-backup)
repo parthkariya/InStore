@@ -8,7 +8,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { ImGoogle } from "react-icons/im";
 import { AiOutlineClose, AiOutlineGoogle } from "react-icons/ai";
 import { useMallContext } from "../../context/mall_context";
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from "react-facebook-login";
 import ReactModal from "react-modal";
 import {
   GrClose,
@@ -75,7 +75,7 @@ const Navbar = () => {
   function logout() {
     localStorage.clear();
     window.location.reload(false);
-    navigate("/")
+    navigate("/");
   }
 
   useEffect(() => {
@@ -150,7 +150,7 @@ const Navbar = () => {
       first_name: fdata.first_name,
       last_name: fdata.last_name,
       type: type,
-      name: fdata.name
+      name: fdata.name,
     };
 
     console.log("-=-=-=->", params);
@@ -161,17 +161,15 @@ const Navbar = () => {
         navigate("/");
         setEmail("");
         window.location.reload(false);
-
       }
     }
-
   };
 
   const SigninCustomer = async (type) => {
     if (getmallname === "") {
       alert("Enter the Mall Name......!");
       return;
-    } else if (getfirstname === '') {
+    } else if (getfirstname === "") {
       alert("Enter the First Name....!");
       return;
     } else if (getlastname === "") {
@@ -225,7 +223,7 @@ const Navbar = () => {
         role: 2,
         email: getemail,
         password: getpassword,
-        type: '1'
+        type: "1",
       };
 
       console.log("-=-=-=->", params);
@@ -538,7 +536,7 @@ const Navbar = () => {
                 <a className="signup_terms_link">Privacy Policy</a>
               </p>
             </div>
-            <button className="signup_model_forgate">Forgate password?</button>
+            <button className="signup_model_forgate">Forgot password?</button>
           </div>
           <button
             className="btn btn-orange mb_16"
@@ -672,7 +670,7 @@ const Navbar = () => {
           <button className="signup_modal_close" onClick={closeModal4}>
             <GrClose />
           </button>
-          <button className="btn btn4 mb_16">Forgate your password?</button>
+          <button className="btn btn4 mb_16">Forgot your password?</button>
           <div className="sign_input_wrapp">
             <label htmlFor="email">Email</label>
             <input type="email" name="" id="" />

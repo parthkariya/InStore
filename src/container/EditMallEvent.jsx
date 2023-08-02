@@ -6,6 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useMallContext } from "../context/mall_context";
 import moment from "moment";
+import { MallHero } from "../components";
+import { IoChevronBack } from "react-icons/io5";
 
 
 const EditMallEvent = ({
@@ -125,45 +127,49 @@ const EditMallEvent = ({
   console.log("eventList", eventList);
 
   return (
-    <div className="mm_main_wrapp">
-      {/* mall management name start */}
-      <div className="mall_name_wrapp">
-        <p className="mall_name_heading">{get_mall_auth_data.name && get_mall_auth_data.name}:</p>
-        <span>Edit Events</span>
-      </div>
-      <div className="mm_horizontal_line"></div>
-      {/* mall management name end */}
+    <>
+      <MallHero get_mall_auth_data={get_mall_auth_data} />
 
-      {/* mall management form start */}
-      <div className="mm_form_wrapp">
-        {/* text-input wrapp start */}
-        <div className="mm_form_input_wrapp">
-          {/* single text-input */}
-          <div className="mm_form_single_input">
-            <label htmlFor="ename">Event Name</label>
-            <input
-              type="text"
-              value={eventName}
-              onChange={(e) => setEventName(e.target.value)}
-              name="ename"
-              id=""
-              className="input_box"
-            />
-          </div>
-          {/* single text-input */}
-          <div className="mm_form_single_input">
-            <label htmlFor="elocation">Event Location</label>
-            <input
-              type="text"
-              value={eventLocation}
-              onChange={(e) => setEventLocation(e.target.value)}
-              name="elocation"
-              id=""
-              className="input_box"
-            />
-          </div>
-          {/* single text-input */}
-          {/* <div className="mm_form_single_input">
+      <div className="mm_main_wrapp">
+        <div className='edit-brand-back-iconbox' onClick={() => setTab(5)}><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div>
+        {/* mall management name start */}
+        <div className="mall_name_wrapp">
+          <p className="mall_name_heading">{get_mall_auth_data.name && get_mall_auth_data.name}:</p>
+          <span>Edit Events</span>
+        </div>
+        <div className="mm_horizontal_line"></div>
+        {/* mall management name end */}
+
+        {/* mall management form start */}
+        <div className="mm_form_wrapp">
+          {/* text-input wrapp start */}
+          <div className="mm_form_input_wrapp">
+            {/* single text-input */}
+            <div className="mm_form_single_input">
+              <label htmlFor="ename">Event Name</label>
+              <input
+                type="text"
+                value={eventName}
+                onChange={(e) => setEventName(e.target.value)}
+                name="ename"
+                id=""
+                className="input_box"
+              />
+            </div>
+            {/* single text-input */}
+            <div className="mm_form_single_input">
+              <label htmlFor="elocation">Event Location</label>
+              <input
+                type="text"
+                value={eventLocation}
+                onChange={(e) => setEventLocation(e.target.value)}
+                name="elocation"
+                id=""
+                className="input_box"
+              />
+            </div>
+            {/* single text-input */}
+            {/* <div className="mm_form_single_input">
             <label htmlFor="">Start Date</label>
             <input
               type="date"
@@ -174,8 +180,8 @@ const EditMallEvent = ({
               className="input_box"
             />
           </div> */}
-          {/* single text-input */}
-          {/* <div className="mm_form_single_input">
+            {/* single text-input */}
+            {/* <div className="mm_form_single_input">
             <label htmlFor="">End Date</label>
             <input
               type="date"
@@ -186,9 +192,9 @@ const EditMallEvent = ({
               className="input_box"
             />
           </div> */}
-          <div className="mm_form_single_input">
-            <label htmlFor="">Event Date</label>
-            {/* <input
+            <div className="mm_form_single_input">
+              <label htmlFor="">Event Date</label>
+              {/* <input
               type="date"
               value={eventEndDate}
               onChange={(e) => setEventEndDate(e.target.value)}
@@ -196,22 +202,22 @@ const EditMallEvent = ({
               id=""
               className="input_box"
             /> */}
-            <DatePicker
-              selected={eventStartDate}
-              onChange={onDateChage}
-              startDate={eventStartDate}
-              endDate={eventEndDate}
+              <DatePicker
+                selected={eventStartDate}
+                onChange={onDateChage}
+                startDate={eventStartDate}
+                endDate={eventEndDate}
 
 
-              selectsRange
-              // selectsDisabledDaysInRange
-              // inline
-              calendarStartDay={1}
-              className="input_box"
-            />
-          </div>
-          {/* single text-input */}
-          {/* <div className="mm_form_single_input">
+                selectsRange
+                // selectsDisabledDaysInRange
+                // inline
+                calendarStartDay={1}
+                className="input_box"
+              />
+            </div>
+            {/* single text-input */}
+            {/* <div className="mm_form_single_input">
             <label htmlFor="">Contact Number</label>
             <input
               type="number"
@@ -221,8 +227,8 @@ const EditMallEvent = ({
               className="input_box"
             />
           </div> */}
-          {/* single text-input */}
-          {/* <div className="mm_form_single_input">
+            {/* single text-input */}
+            {/* <div className="mm_form_single_input">
             <label htmlFor="">Email Address</label>
             <input
               type="email"
@@ -233,117 +239,118 @@ const EditMallEvent = ({
             />
           </div> */}
 
-          {/* text-area sec start */}
-          <div
-            className="mm_form_single_input"
-            style={{ alignItems: "flex-start" }}
-          >
-            <label htmlFor="">Event Description</label>
-            <textarea
-              type="text"
-              value={eventDescription}
-              onChange={(e) => setEventDescription(e.target.value)}
-              name=""
-              id=""
-              className="input_box"
-              rows={8}
-            />
-          </div>
-          {/* text-area sec end */}
-
-          {/*  terms condition start */}
-          <div className="mm_form_single_input mb_8">
-            <label htmlFor=""></label>
-            <div className="signup_terms_wrapp">
-              <input type="checkbox" onChange={(e) => setterms_condition(1)} />
-
-              <p className="fs-des">
-                I have read and agree to the{" "}
-                <a className="signup_terms_link">Terms and Conditions</a> &{" "}
-                <a className="signup_terms_link">Privacy Policy</a>
-              </p>
-            </div>
-          </div>
-          {/*  terms condition end */}
-
-          {/* upload btn start */}
-          {/* single text-input */}
-          <div className="mm_form_single_input">
-            <label htmlFor=""></label>
-            <button
-              className="btn btn-orange"
-              style={{ alignSelf: "start", maxWidth: "150px" }}
-              onClick={() => UpdateMallEventData()}
+            {/* text-area sec start */}
+            <div
+              className="mm_form_single_input"
+              style={{ alignItems: "flex-start" }}
             >
-              Upload
-            </button>
-          </div>
-          {/* upload btn end */}
-        </div>
-        {/* text-input wrapp end */}
+              <label htmlFor="">Event Description</label>
+              <textarea
+                type="text"
+                value={eventDescription}
+                onChange={(e) => setEventDescription(e.target.value)}
+                name=""
+                id=""
+                className="input_box"
+                rows={8}
+              />
+            </div>
+            {/* text-area sec end */}
 
-        {/* upload images wrapp start */}
-        <div className="mm_img_upload_wrapp">
-          {/* single upload image */}
-          <div className="myprofile_inner_sec2">
-            {/* <h4 className="myprofile_upload_img_card_name" style={{ marginBottom: "10px" }}>
+            {/*  terms condition start */}
+            <div className="mm_form_single_input mb_8">
+              <label htmlFor=""></label>
+              <div className="signup_terms_wrapp">
+                <input type="checkbox" onChange={(e) => setterms_condition(1)} />
+
+                <p className="fs-des">
+                  I have read and agree to the{" "}
+                  <a className="signup_terms_link">Terms and Conditions</a> &{" "}
+                  <a className="signup_terms_link">Privacy Policy</a>
+                </p>
+              </div>
+            </div>
+            {/*  terms condition end */}
+
+            {/* upload btn start */}
+            {/* single text-input */}
+            <div className="mm_form_single_input">
+              <label htmlFor=""></label>
+              <button
+                className="btn btn-orange"
+                style={{ alignSelf: "start", maxWidth: "150px" }}
+                onClick={() => UpdateMallEventData()}
+              >
+                Upload
+              </button>
+            </div>
+            {/* upload btn end */}
+          </div>
+          {/* text-input wrapp end */}
+
+          {/* upload images wrapp start */}
+          <div className="mm_img_upload_wrapp">
+            {/* single upload image */}
+            <div className="myprofile_inner_sec2">
+              {/* <h4 className="myprofile_upload_img_card_name" style={{ marginBottom: "10px" }}>
               Upload the Event image <br />
               (200 x 150 pixels)
             </h4> */}
-            <h4 style={{ marginBottom: "10px" }}>
-              Upload the Event image <br />
-              (200 x 150 pixels)
-            </h4>
-            {files && files.length > 0 ? (
-              <div className="myprofile_inner_sec2_img_upload">{thumbs}</div>
-            ) : (
-              <div style={{ width: "100%" }} {...getRootProps({ className: "dropzone" })}>
-                <div className="myprofile_inner_sec2_img_upload">
-                  <AiOutlineCloudUpload
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      color: "var(--color-orange)",
-                      marginBottom: "10px",
-                    }}
-                  />
-                  <h4>.PDF .JPG .PNG</h4>
-                  <p>You can also upload file by</p>
-                  <input
-                    {...getInputProps()}
-                    accept="image/jpeg, image/jpg, image/png, image/eps"
-                    type='file'
-                    name='photos'
-                  />
-                  <button type="button" className="click_upload_btn">
-                    clicking here
-                  </button>
-                  {/* <a href="">clicking here</a> */}
+              <h4 style={{ marginBottom: "10px" }}>
+                Upload the Event image <br />
+                (200 x 150 pixels)
+              </h4>
+              {files && files.length > 0 ? (
+                <div className="myprofile_inner_sec2_img_upload">{thumbs}</div>
+              ) : (
+                <div style={{ width: "100%" }} {...getRootProps({ className: "dropzone" })}>
+                  <div className="myprofile_inner_sec2_img_upload">
+                    <AiOutlineCloudUpload
+                      style={{
+                        width: "60px",
+                        height: "60px",
+                        color: "var(--color-orange)",
+                        marginBottom: "10px",
+                      }}
+                    />
+                    <h4>.PDF .JPG .PNG</h4>
+                    <p>You can also upload file by</p>
+                    <input
+                      {...getInputProps()}
+                      accept="image/jpeg, image/jpg, image/png, image/eps"
+                      type='file'
+                      name='photos'
+                    />
+                    <button type="button" className="click_upload_btn">
+                      clicking here
+                    </button>
+                    {/* <a href="">clicking here</a> */}
+                  </div>
+                  <div className="btnn-main">
+                    <button
+                      className="btn btn-orange mb_8"
+                      type="button"
+                      onClick={() => {
+                        // setFiles([]);
+                      }}
+                    >
+                      Upload File
+                    </button>
+                  </div>
                 </div>
-                <div className="btnn-main">
-                  <button
-                    className="btn btn-orange mb_8"
-                    type="button"
-                    onClick={() => {
-                      // setFiles([]);
-                    }}
-                  >
-                    Upload File
-                  </button>
-                </div>
-              </div>
-            )}
-            {/* <div className="myprofile_upload_img_btn_wrapp"> */}
-            <button className="btn btn-blue" onClick={() => setFiles([])}>
-              Cancel
-            </button>
-            {/* </div> */}
+              )}
+              {/* <div className="myprofile_upload_img_btn_wrapp"> */}
+              <button className="btn btn-blue" onClick={() => setFiles([])}>
+                Cancel
+              </button>
+              {/* </div> */}
+            </div>
           </div>
+          {/* upload images wrapp end */}
         </div>
-        {/* upload images wrapp end */}
+        {/* mall management form end */}
       </div>
-      {/* mall management form end */}
-    </div>
+    </>
   );
 };
 

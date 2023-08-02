@@ -97,7 +97,7 @@ const CustomerFacility = ({ getsingalmalldata }) => {
   };
   return (
     <div>
-      <CustomerHeroSecond />
+      <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
 
       <div className="mm_main_wrapp">
         {/* <div className="mall_name_wrapp"> */}

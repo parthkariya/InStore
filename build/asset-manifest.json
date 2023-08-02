@@ -1,12 +1,10 @@
 {
   "files": {
-    "main.css": "/In-store-front/static/css/main.a703e215.css",
-    "main.js": "/In-store-front/static/js/main.36cca5c5.js",
+    "main.css": "/In-store-front/static/css/main.b505a1f1.css",
+    "main.js": "/In-store-front/static/js/main.b9c62aa0.js",
     "static/js/787.2d78f676.chunk.js": "/In-store-front/static/js/787.2d78f676.chunk.js",
     "static/media/mall_home_hero_banner.jpg": "/In-store-front/static/media/mall_home_hero_banner.d963564f55d32df256a1.jpg",
     "static/media/mall_img.jpg": "/In-store-front/static/media/mall_img.6c5818d1f4829573bf3d.jpg",
-    "static/media/hero_banner.png": "/In-store-front/static/media/hero_banner.27ae97fd60e44df3b2d9.png",
-    "static/media/mall_home_page.png": "/In-store-front/static/media/mall_home_page.bc31fc166e1ed021c6ff.png",
     "static/media/hero_profile_banner.png": "/In-store-front/static/media/hero_profile_banner.f250c6d2a82a7339fa53.png",
     "static/media/registermall.png": "/In-store-front/static/media/registermall.01df620f33b3a58026b4.png",
     "static/media/after_login_img.jpg": "/In-store-front/static/media/after_login_img.8f4259df8002d17578b7.jpg",
@@ -14,13 +12,19 @@
     "static/media/about_3.png": "/In-store-front/static/media/about_3.2a365eae61abd31b85f6.png",
     "static/media/mall_hero_banner.jpg": "/In-store-front/static/media/mall_hero_banner.aa0c58c5e95f769e426d.jpg",
     "static/media/about_2.png": "/In-store-front/static/media/about_2.8b2fb888250d9d2eef19.png",
-    "static/media/about_hero.jpg": "/In-store-front/static/media/about_hero.74d35e32dbc4e54845c9.jpg",
     "static/media/movies_card.png": "/In-store-front/static/media/movies_card.0d053ea4a9f8cf076362.png",
     "static/media/about-mobile-screen.png": "/In-store-front/static/media/about-mobile-screen.fcbf9116d35350ed5df3.png",
-    "static/media/brand-page-hero.jpeg": "/In-store-front/static/media/brand-page-hero.580481458e9a51a5666c.jpeg",
+    "static/media/movies_card3.png": "/In-store-front/static/media/movies_card3.4593eba17d236007e9b8.png",
     "static/media/et_logo11.png": "/In-store-front/static/media/et_logo11.4683c2c05abba5291ee6.png",
+    "static/media/mall_home_page.webp": "/In-store-front/static/media/mall_home_page.002d8b6049228ee04356.webp",
+    "static/media/movies_card2.png": "/In-store-front/static/media/movies_card2.9280b50fca9a188bae12.png",
+    "static/media/movies_card4.png": "/In-store-front/static/media/movies_card4.fbb5bb071e9a2eb13e52.png",
+    "static/media/hero_banner.webp": "/In-store-front/static/media/hero_banner.5d7710150b9a481138a6.webp",
+    "static/media/brand-page-hero.webp": "/In-store-front/static/media/brand-page-hero.4ff7ba882480b414b07b.webp",
     "static/media/promotion_banner_sing.png": "/In-store-front/static/media/promotion_banner_sing.da3f9fd7dcb1f668b888.png",
     "static/media/uniq-img.webp": "/In-store-front/static/media/uniq-img.acae8c0c02df3657ade7.webp",
+    "static/media/hero_banner2.webp": "/In-store-front/static/media/hero_banner2.ff17bb927139791ca0f7.webp",
+    "static/media/about_hero.webp": "/In-store-front/static/media/about_hero.5a23738add9669dab0de.webp",
     "static/media/cancle_orange.png": "/In-store-front/static/media/cancle_orange.9bce7f108cf43db1d71e.png",
     "static/media/home_archive.png": "/In-store-front/static/media/home_archive.badf6d2f3f2d130ed608.png",
     "static/media/mall_hero_logo.jpg": "/In-store-front/static/media/mall_hero_logo.f70fc1ae2bb6eca6ec76.jpg",
@@ -45,12 +49,12 @@
     "static/media/et_logo9.webp": "/In-store-front/static/media/et_logo9.7a3c4c8aa3d0b98fbd50.webp",
     "static/media/slick.woff": "/In-store-front/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/In-store-front/index.html",
-    "main.a703e215.css.map": "/In-store-front/static/css/main.a703e215.css.map",
-    "main.36cca5c5.js.map": "/In-store-front/static/js/main.36cca5c5.js.map",
+    "main.b505a1f1.css.map": "/In-store-front/static/css/main.b505a1f1.css.map",
+    "main.b9c62aa0.js.map": "/In-store-front/static/js/main.b9c62aa0.js.map",
     "787.2d78f676.chunk.js.map": "/In-store-front/static/js/787.2d78f676.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a703e215.css",
-    "static/js/main.36cca5c5.js"
+    "static/css/main.b505a1f1.css",
+    "static/js/main.b9c62aa0.js"
   ]
 }

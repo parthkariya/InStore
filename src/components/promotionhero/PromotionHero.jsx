@@ -6,10 +6,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const PromotionHero = ({ getdprodata }) => {
-
-  useEffect(() => {
-    console.log("leaderboard customer side", getdprodata);
-  }, [])
   var settings = {
     // dots: true,
     infinite: true,
@@ -23,7 +19,7 @@ const PromotionHero = ({ getdprodata }) => {
       {getdprodata && getdprodata.length > 0
         ? getdprodata.map((x, i) => {
           return (
-            <div className="mall_hero_main_wrapp" style={{ overflow: 'hidden' }}>
+            <div className="mall_hero_main_wrapp">
               <img
                 src={
                   x.image_path === null

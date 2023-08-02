@@ -545,7 +545,7 @@ const MallHomePage = () => {
                 <a className="signup_terms_link">Privacy Policy</a>
               </p>
             </div>
-            <button className="signup_model_forgate">Forgate password?</button>
+            <button className="signup_model_forgate">Forgot password?</button>
           </div>
           <button
             className="btn btn-orange mb_16"

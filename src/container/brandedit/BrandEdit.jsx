@@ -132,7 +132,7 @@ const BrandEdit = ({ get_mall_auth_data }) => {
 
     return (
         <div className="mm_main_wrapp">
-            <div className='edit-brand-back-iconbox'><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div>
+            {/* <div className='edit-brand-back-iconbox'><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div> */}
             {/* mall management name start */}
             <div className="mall_name_wrapp">
 

@@ -49,6 +49,14 @@ import MallNavbar from "./mallnavbar/MallNavbar";
 import CustomerProductTilesHero from "./customerproducttileshero/CustomerProductTilesHero";
 import RetailerPageNavbar from "./retailerpagenavbar/RetailerPageNavbar";
 import RetailerNavigationBar from "./retailernavigationbar/RetailerNavigationBar";
+
+// 25-7-23
+
+import BrandInMallCard from "./brandinmallcard/BrandInMallCard";
+
+// 27-7-23
+
+import CustomerEateryHero from "./customereateryhero/CustomerEateryHero";
 export {
   Imgcard,
   ProductCard,
@@ -99,4 +107,8 @@ export {
   CustomerProductTilesHero,
   RetailerPageNavbar,
   RetailerNavigationBar,
+  BrandInMallCard,
+
+  // 27-7-23
+  CustomerEateryHero,
 };

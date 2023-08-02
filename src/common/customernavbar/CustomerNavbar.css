@@ -107,4 +107,10 @@
             padding-left: 0px !important;
         }
     }
+
+    @media screen and (max-width:500px) {
+        .cus-nav-logo-after {
+            padding-left: 15px !important;
+        }
+    }
 }

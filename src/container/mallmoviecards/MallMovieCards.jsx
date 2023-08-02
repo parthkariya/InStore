@@ -90,7 +90,7 @@ const MallMovieCards = ({
                         setTab(18);
                     }}
                 >
-                    Upload Retailer Directory{" "}
+                    Upload Movie Directory{" "}
                     <BsArrowRight size={20} style={{ marginLeft: "10px" }} />
                 </button>
                 <div className="mm_horizontal_line"></div>

@@ -4,7 +4,7 @@ import "./RetailerProfile.css"
 
 const RetailerProfile = ({ setTab, get_mall_auth_data }) => {
     return (
-        <div className="mallpp_main_wrapp mallpp_main_wrapp-resp" style={{ width: "80%" }} >
+        <div className="mallpp_main_wrapp mallpp_main_wrapp-resp" style={{ width: "100%" }} >
             <div className="mallpp_part1">
                 <p className="mall_part_1_heading">Welcome {get_mall_auth_data && get_mall_auth_data.name && get_mall_auth_data.name}!</p>
                 {/* <p className="mall_part_1_heading">Welcome {get_mall_auth_data && get_mall_auth_data.retailers.name && get_mall_auth_data.retailers.name}!</p> */}

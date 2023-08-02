@@ -156,7 +156,7 @@ const MallNearMeBrands = ({ getsingalmalldata, setTab, setBDetalis }) => {
       ) : (
         <div className="mall_nearme_brand_main_wrapp">
           {/* <CustomerHero getsingalmalldata={getsingalmalldata} /> */}
-          <CustomerHeroSecond />
+          <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
           <div className="mm_main_wrapp">
             {/* heading */}
             <div className="profile_head_center">

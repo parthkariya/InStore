@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./BrandInMall.css";
 import { GrFormDown, GrFormSearch, GrFormUp } from "react-icons/gr";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { BrandItmCard } from "../../components";
+import { BrandInMallCard, BrandItmCard } from "../../components";
 import images from "../../constants/images";
+import { BsArrowRight } from "react-icons/bs";
 
 const AccordionData = [
   {
@@ -108,7 +109,7 @@ const BrandData = [
   },
 ];
 
-const BrandInMall = () => {
+const BrandInMall = ({ setTab }) => {
   const [toggle, setToggle] = useState(null);
 
   const handleChange = (e) => {
@@ -127,6 +128,10 @@ const BrandInMall = () => {
         <p className="mall_name_heading">TRUWORTHS: </p>
         <span>My Brands in Malls</span>
       </div>
+      <button className="upload_retail_btn" onClick={() => setTab(24)}>
+        Upload Retailer Directory{" "}
+        <BsArrowRight size={20} style={{ marginLeft: "10px" }} />
+      </button>
       <div className="mm_horizontal_line"></div>
       <div className="brandinmall_sec_wrapp">
         <div className="brandinmall_part_1">
@@ -142,45 +147,45 @@ const BrandInMall = () => {
           <p className="barnd_mall_title_name">My Brands in Malls:</p>
           {AccordionData && AccordionData.length > 0
             ? AccordionData.map((item, index) => {
-                return (
-                  <div className="bim_accordian_wrapp" key={item.id}>
-                    <button
-                      className="bim_accordian_btn"
-                      onClick={() => handleToggle(item.id)}
+              return (
+                <div className="bim_accordian_wrapp" key={item.id}>
+                  <button
+                    className="bim_accordian_btn"
+                    onClick={() => handleToggle(item.id)}
+                  >
+                    <p
+                      style={{
+                        color: item.id === toggle ? "#ff8b00" : "#000",
+                        fontWeight: item.id === toggle ? "500" : "300",
+                      }}
                     >
-                      <p
-                        style={{
-                          color: item.id === toggle ? "#ff8b00" : "#000",
-                          fontWeight: item.id === toggle ? "500" : "300",
-                        }}
-                      >
-                        {item.city}
-                      </p>
-                      {item.id === toggle ? (
-                        <IoIosArrowUp size={20} color="#ff8b00" />
-                      ) : (
-                        <IoIosArrowDown size={20} />
-                      )}
-                    </button>
+                      {item.city}
+                    </p>
                     {item.id === toggle ? (
-                      <div className="bim_accordian_mall_wrapp">
-                        {item.mall.map((itm, ind) => {
-                          return <button key={itm.id}>{itm.name}</button>;
-                        })}
-                      </div>
+                      <IoIosArrowUp size={20} color="#ff8b00" />
                     ) : (
-                      ""
+                      <IoIosArrowDown size={20} />
                     )}
-                  </div>
-                );
-              })
+                  </button>
+                  {item.id === toggle ? (
+                    <div className="bim_accordian_mall_wrapp">
+                      {item.mall.map((itm, ind) => {
+                        return <button key={itm.id}>{itm.name}</button>;
+                      })}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                </div>
+              );
+            })
             : null}
         </div>
         <div className="brandinmall_part_2">
           {BrandData && BrandData.length > 0
             ? BrandData.map((brndItm) => {
-                return <BrandItmCard img={brndItm.img} key={brndItm.id} />;
-              })
+              return <BrandInMallCard img={brndItm.img} key={brndItm.id} setTab={setTab} />;
+            })
             : null}
         </div>
       </div>

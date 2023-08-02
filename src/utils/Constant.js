@@ -142,6 +142,7 @@ export const create_movie = BaseUrl + "create-movie";
 export const get_movie_list = BaseUrl + "get-movie-authwise";
 export const delete_movie = BaseUrl + "delete-movie";
 export const update_movie = BaseUrl + "update-movie";
+export const get_mall_movie_customer = BaseUrl + "get-mall-movie-customer";
 
 // product tils
 export const product_cus_tile = BaseUrl + "get-product-customer-tile";
@@ -159,3 +160,11 @@ export const uploadfileretailer = BaseUrl + "import-export-for-retailer";
 // customer facility
 export const get_mall_facelity_customer =
   BaseUrl + "get-mall-facelity-customer?";
+
+// eatery directory
+export const mall_eatery_import = BaseUrl + "mall-eatery-import";
+export const eatery_sample_export = BaseUrl + "eatery-sample-export";
+
+// eatery directory
+export const movie_sample_export = BaseUrl + "movie-sample-export";
+export const movie_import = BaseUrl + "movie-import";

@@ -40,13 +40,15 @@ const Homepage = () => {
       />
 
       <HomeHero img={images.hero_banner} />
-      <WelcomeStore
-        WcBtn={true}
-        title={"Welcome to In-store"}
-        des={
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip."
-        }
-      />
+      <div className="home-page-sec-gap-wel">
+        <WelcomeStore
+          WcBtn={true}
+          title={"Welcome to In-store"}
+          des={
+            "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip."
+          }
+        />
+      </div>
       <WhayJoin />
       {/* about in store register part-1 start*/}
       <div className="main_wrapp registermall_main_wrapp bg-pink">
@@ -116,8 +118,8 @@ const Homepage = () => {
             </p>
             {/* <Link to="/customer" className="homepage-black-btn">Read more</Link> */}
             <div className="apps_logos_wrapp">
-              <img src={images.play_store_logo} alt="play store logo" />
-              <img src={images.app_store_logo} alt="app store logo" />
+              <img src={images.play_store_logoo} alt="play store logo" style={{ height: "48px" }} />
+              <img src={images.app_store_logoo} alt="app store logo" style={{ height: "48px" }} />
             </div>
           </div>
           <div className="registermall_sec2">

@@ -7,7 +7,7 @@ const WhayJoin = () => {
 
   return (
     <div className="main_wrapp">
-      <div className="container whayjoin_wrapp">
+      <div className="container whayjoin_wrapp why-sec-gap">
         <h2 className="h2" style={{ marginBottom: "15px" }}>Why Join In-Store?</h2>
         <p>Here are some benefits of using our online marketing platform.</p>
         <div className="whyjoin_grid">

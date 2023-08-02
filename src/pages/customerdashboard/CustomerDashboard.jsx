@@ -192,14 +192,16 @@ const CustomerDashboard = () => {
               {/* style={{ transform: sidebaropen === true ? "translate(px, 0px)" : "translate(-300px, 0px)" }} */}
 
               {/* side-bar start  */}
-              <div
+
+              <div className="cust-sidemenu-resp"
                 style={{
                   display: "flex",
                   gap: "5px",
+                  width: "25%",
 
                   position: sidebaropen === true ? null : "absolute",
 
-                  left: sidebaropen === true ? null : "-400px",
+                  left: sidebaropen === true ? null : "-25%",
                 }}
               >
                 <div className="customer_sidebar_wrapp" style={{}}>
@@ -220,10 +222,10 @@ const CustomerDashboard = () => {
                       <div className="customer-sidebar-profile-img">
                         <img
                           src={
-                            getsingalmalldata.shopping_center_thumbnail_mall_path ===
+                            getsingalmalldata.shopping_center_logo_mall_path ===
                               null
                               ? getsingalmalldata.mall_hero_logo
-                              : getsingalmalldata.shopping_center_thumbnail_mall_path
+                              : getsingalmalldata.shopping_center_logo_mall_path
                           }
                           className="customer-sidebar-profile-img_inner"
                         />
@@ -438,7 +440,8 @@ const CustomerDashboard = () => {
               {/* side-bar end  */}
 
               {/* main-cotainer start */}
-              <div className="profile_main_sec_wrapp">
+              <div className={`${sidebaropen ? 'profile_main_sec_wrapp cust-main-sec-wrapp' : 'cust-main-sec-wrapp2'}`}>
+                {/* <div className="profile_main_sec_wrapp cust-main-sec-wrapp "> */}
                 {/* <div className=""> */}
                 {/* <MallHero get_mall_auth_data={get_mall_auth_data} /> */}
                 {/* </div> */}

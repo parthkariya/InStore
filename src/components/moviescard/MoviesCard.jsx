@@ -19,7 +19,7 @@ const MoviesCard = ({ item }) => {
                     {" "}
                     {item.genres ? item.genres.name : ""}{" "}
                 </p>
-                <button className="movies-card-btn btn btn-black">Book now</button>
+                <a href={item.booking_url} className="movies-card-btn btn btn-black" target="_blank">Book now</a>
             </div>
         </div>
     );

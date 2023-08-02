@@ -123,7 +123,7 @@ const CustomerMallEateries = ({ getsingalmalldata, setTab, setEDetalis }) => {
       ) : (
         <div className="mall_nearme_brand_main_wrapp">
           {/* <MallHero getsingalmalldata={getsingalmalldata} /> */}
-          <CustomerHeroSecond />
+          <CustomerHeroSecond getsingalmalldata={getsingalmalldata} />
           <div className="mm_main_wrapp">
             {/* heading */}
             <div className="profile_head_center">

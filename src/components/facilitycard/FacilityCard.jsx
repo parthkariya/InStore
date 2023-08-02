@@ -21,10 +21,14 @@ const FacalityCard = ({ item, setTab, setfacility_id, getsinglefacilitydata, set
     console.log("-=-=-=->", formdata);
     const data = await DeleteFacilityApi(formdata);
     if (data) {
-      if (data.success === 1) {
+      if (data.success == 1) {
         console.log("facility-data", data);
-        setTab(6);
+
         getFacilityApi();
+
+
+
+        setTab(6);
       }
     }
     // }

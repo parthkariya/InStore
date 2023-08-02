@@ -11,6 +11,8 @@ import { useStoreContext } from "../../context/store_context";
 import { useMallContext } from "../../context/mall_context";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import Notification from "../../utils/Notification"
+
 
 const animatedComponents = makeAnimated();
 
@@ -132,32 +134,48 @@ const AddLeaderBoardCard = ({
     const CreateLeaderBoardBanner = async () => {
         console.log("test");
 
-        const formdata = await new FormData();
-        // await formdata.append("id", item.id)
-        await formdata.append("title", title);
-        for (var i = 0; i < regionidarray.length; i++) {
-            await formdata.append("region_id[" + i + "]", regionidarray[i].id);
-        }
-        for (var i = 0; i < mallidarray.length; i++) {
-            await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
-        }
+        if (title == "" || undefined) {
+            Notification("error", "Error!", "Please Enter Title!");
+            return;
+        } else if (mallidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Mall!");
+        } else if (regionidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Region!");
+        } else if (gatweek == "" || undefined) {
+            Notification("error", "Error!", "Please Select Week!");
+        } else if (BrandName == "" || undefined) {
+            Notification("error", "Error!", "Please Select Brand!");
+        } else if (Category == "" || undefined) {
+            Notification("error", "Error!", "Please Select Category!");
+        } else {
+            const formdata = await new FormData();
+            // await formdata.append("id", item.id)
+            await formdata.append("title", title);
+            for (var i = 0; i < regionidarray.length; i++) {
+                await formdata.append("region_id[" + i + "]", regionidarray[i].id);
+            }
+            for (var i = 0; i < mallidarray.length; i++) {
+                await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
+            }
 
-        await formdata.append("brand_id", BrandName);
-        await formdata.append("category_id", Category);
-        await formdata.append("week_id", gatweek);
+            await formdata.append("brand_id", BrandName);
+            await formdata.append("category_id", Category);
+            await formdata.append("week_id", gatweek);
 
-        if (files[0] !== undefined) {
-            await formdata.append("image", files[0]);
-        }
+            if (files[0] !== undefined) {
+                await formdata.append("image", files[0]);
+            }
 
-        console.log("-=-=-=->", JSON.stringify(formdata, null, 2));
-        const data = await CreateLeaderBoardApi(formdata);
-        if (data) {
-            if (data.success === 1) {
-                console.log("category-data", data);
-                setTab(1);
-                // getLeaderboard();
-                // window.location.reload();
+            console.log("-=-=-=->", JSON.stringify(formdata, null, 2));
+            const data = await CreateLeaderBoardApi(formdata);
+            if (data) {
+                if (data.success === 1) {
+                    console.log("category-data", data);
+                    Notification("success", "Success!", "Leaderboard Added Successfully!");
+                    setTab(1);
+                    // getLeaderboard();
+                    // window.location.reload();
+                }
             }
         }
     };

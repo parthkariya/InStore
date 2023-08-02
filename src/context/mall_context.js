@@ -319,8 +319,9 @@ export const MallProvider = ({ children }) => {
         },
       });
       const mallauthdata = response.data;
-      // console.log('mall wise data', response.data)
+      console.log("mall wise data----print-nathi-thatu-kmmm", response.data);
       if (mallauthdata.success == 1) {
+        localStorage.setItem("mallmainname", response.data.data.name);
         dispatch({ type: GET_MALL_AUTH_SUCCESS, payload: mallauthdata });
       }
       if (

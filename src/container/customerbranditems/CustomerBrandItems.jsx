@@ -15,10 +15,21 @@ import axios from "axios";
 const CustomerBrandItems = ({ setTab, proid, brandid }) => {
   const { get_mall_auth_data, get_mall_store_data } = useMallContext();
 
+  const [getid, setid] = useState("");
+
+
+  // useEffect(() => {
+  //   getmovielist();
+  //   getproductbanner()
+  // }, []);
+
   useEffect(() => {
-    getmovielist();
-    getproductbanner()
-  }, []);
+    const data = JSON.parse(localStorage.getItem('malldata'))
+    console.log("======>123", data);
+
+    getmovielist(data.id);
+    getproductbanner(data.id);
+  }, [])
 
   const [getlist, SetList] = useState([]);
   const [loading, SetLoading] = useState(false);
@@ -27,15 +38,15 @@ const CustomerBrandItems = ({ setTab, proid, brandid }) => {
   const [getlist1, SetList1] = useState([]);
   const [loading1, SetLoading1] = useState(false);
 
-  const getproductbanner = async () => {
+  const getproductbanner = async (id) => {
     SetLoading1(true);
     const token = JSON.parse(localStorage.getItem("is_token"));
 
     const formdata = new FormData();
-    formdata.append("mall_id", proid);
+    formdata.append("mall_id", id);
     formdata.append("brand_id", brandid);
 
-    console.log("formdata", proid, brandid);
+    console.log("formdata", id, brandid);
 
     axios
       .post(get_product_customer, formdata, {
@@ -60,15 +71,16 @@ const CustomerBrandItems = ({ setTab, proid, brandid }) => {
       });
   };
 
-  const getmovielist = async () => {
+  const getmovielist = async (id) => {
+    setid(id)
     SetLoading(true);
     const token = JSON.parse(localStorage.getItem("is_token"));
 
     const formdata = new FormData();
-    formdata.append("mall_id", proid);
+    formdata.append("mall_id", id);
     formdata.append("brand_id", brandid);
 
-    console.log("formdata", proid, brandid);
+    console.log("formdata", id, brandid);
 
     axios
       .post(product_cus_tile, formdata, {
@@ -157,6 +169,7 @@ const CustomerBrandItems = ({ setTab, proid, brandid }) => {
                       getmovieapi={getmovielist}
                       replce={1}
                       mainitem={''}
+                      getid={getid}
                     />
                   );
                 })

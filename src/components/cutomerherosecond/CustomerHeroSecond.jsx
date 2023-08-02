@@ -2,11 +2,11 @@ import React from "react";
 // import "./MallHero.css";
 import images from "../../constants/images";
 
-const CustomerHeroSecond = () => {
+const CustomerHeroSecond = ({ getsingalmalldata }) => {
     return (
         <div className="mall_hero_main_wrapp">
             <img
-                src={images.mall_home_hero_banner ? images.mall_hero_banner : null}
+                src={getsingalmalldata.banner_mall_path ? getsingalmalldata.banner_mall_path : null}
                 alt=""
                 className="mall_hero_banner_img"
             />

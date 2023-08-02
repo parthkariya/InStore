@@ -51,7 +51,7 @@ const AboutInStorePage = () => {
 
         {/* about in store start */}
         <div className="main_wrapp mt_16">
-          <div className="container whayjoin_wrapp">
+          <div className="container whayjoin_wrapp about-extra-gap-section">
             <h1 className="h1 mb_10">About In-Store</h1>
             <p className="mb_16">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam

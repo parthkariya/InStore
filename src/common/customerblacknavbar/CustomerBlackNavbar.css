@@ -19,3 +19,9 @@
         padding-left: 15px;
     }
 }
+
+@media screen and (max-width:400px) {
+    .cus-nav-black-con {
+        font-size: 14px;
+    }
+}

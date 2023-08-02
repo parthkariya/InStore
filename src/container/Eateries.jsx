@@ -9,6 +9,8 @@ import { useMallContext } from "../context/mall_context";
 import { Link } from "react-router-dom";
 import { ACCEPT_HEADER, get_eatery_mall_wise } from "../utils/Constant";
 import axios from "axios";
+import Notification from "../utils/Notification"
+
 
 const StoresData = [
   {
@@ -93,6 +95,8 @@ const Eateries = ({
 }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [get_main_name, Set_Main_Name] = useState('')
+
 
   // const [getsingleStoreData, setSingleStoreData] = useState({});
   const { DeleteEateriesApi } = useMallContext();
@@ -104,6 +108,9 @@ const Eateries = ({
   useEffect(() => {
     console.log("123", getsingleStoreData);
     getEateryList();
+    const name = localStorage.getItem("mallmainname")
+
+    Set_Main_Name(name)
   }, []);
 
   const [eateryList, setEateryList] = useState([]);
@@ -145,6 +152,9 @@ const Eateries = ({
       if (data) {
         if (data.success == 1) {
           console.log("mall-data", data);
+          Notification("success", "Success!", "Eateries Deleted Successfully!");
+          setIsOpen(false);
+
           getEateryList();
           setTab(4);
           // getStore();
@@ -177,11 +187,12 @@ const Eateries = ({
 
           <div className="mm_main_wrapp">
             <div className="mall_name_wrapp">
-              <p className="mall_name_heading">{get_mall_auth_data.name}:</p>
+              {/* <p className="mall_name_heading">{get_mall_auth_data.name}:</p> */}
+              <p className="mall_name_heading">{get_main_name}:</p>
               <span>Eateries</span>
             </div>
-            <button onClick={() => setTab(8)} className="upload_retail_btn">
-              Edit Mall Eateries{" "}
+            <button onClick={() => setTab(34)} className="upload_retail_btn">
+              Upload Eatery Directory{" "}
               <BsArrowRight size={20} style={{ marginLeft: "10px" }} />
             </button>
             <div className="mm_horizontal_line"></div>

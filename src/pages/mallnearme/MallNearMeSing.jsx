@@ -135,7 +135,7 @@ const MallNearMeSing = ({ setTab }) => {
             ) : (
                 <div className="mall-near-me-main-wraapp">
                     <div className="mall-near-me-sub-flex">
-                        <h3 className="h4" style={{ fontSize: "40px", fontWeight: "800" }}>Explore malls near you</h3>
+                        <h3 className="h4 mallnearmesing-main-heading" style={{ fontSize: "40px", fontWeight: "800" }}>Explore malls near you</h3>
                         <div className="mall_near_brand_searchbar">
                             <input
                                 type="text"

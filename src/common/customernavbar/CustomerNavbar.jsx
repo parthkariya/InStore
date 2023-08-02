@@ -386,8 +386,28 @@ const CustomerNavbar = ({ setTab }) => {
                         {getsidebarOpen && (
                             <div className="nav_sidebar_wrapp">
                                 <Link to="/">Home</Link>
+                                {login === 'true' && getrole == 2 ? <Link to="/profile-page"
+                                    className="navbar-acc-menu-link"
+                                >
+                                    Mall Dashboard
+                                </Link> : null}
+
+                                {login === 'true' && getrole == 3 ? <Link to="/branddashboard"
+                                    className="navbar-acc-menu-link"
+                                >
+                                    Brand Dashboard
+                                </Link> : null}
+
+                                {login === 'true' && getrole == 4 ? <Link to="/mallnearme"
+                                    className="navbar-acc-menu-link"
+                                >
+                                    Mall Near Me
+                                </Link> : null}
+
                                 <Link to="/about-instore">About InStore</Link>
                                 {/* <Link to="/mall">Mall </Link> */}
+                                <Link to="/mall">Mall Registration</Link>
+
                                 <Link to="/retailer">Brand Registration</Link>
                                 {/* {getcondation === false ? (
                 <Link onClick={() => setIsOpen2(true)}>Sign Up</Link>
@@ -406,7 +426,7 @@ const CustomerNavbar = ({ setTab }) => {
               </Link> */}
                                 {getaccountOpen && (
                                     <div className="accunt_sec_wrapp">
-                                        {login === "true" || getrole === 4 ? <></> : <Link onClick={() => setIsOpen3(true)}>Login</Link>}
+                                        {login === 'true' || getrole === 4 ? <></> : <Link onClick={() => setIsOpen3(true)}>Login</Link>}
                                         {/* <Link onClick={() => setRegisterCustomerOpen(true)}>Sign Up</Link> */}
                                         <Link onClick={() => modalIsOpen(true)}>Sign Up</Link>
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Facilities.css"
 import { FacilityCard, MallHero } from '../../components';
 import images from '../../constants/images';
@@ -57,10 +57,16 @@ const FacilitiesData = [
 
 const Facilities = ({ get_mall_auth_data, setTab, setfacility_id, getsinglefacilitydata, setsinglefacilitydata }) => {
   const { get_facility_data, getFacilityApi } = useMallContext();
-  console.log("facility data is ==>", get_facility_data);
+
+
+
+  const [get_main_name, Set_Main_Name] = useState('')
 
   useEffect(() => {
     getFacilityApi();
+    const name = localStorage.getItem("mallmainname")
+
+    Set_Main_Name(name)
   }, [])
   return (
     <>
@@ -70,12 +76,12 @@ const Facilities = ({ get_mall_auth_data, setTab, setfacility_id, getsinglefacil
 
       <div className="mm_main_wrapp">
         <div className="mall_name_wrapp">
-          <p className="mall_name_heading">{get_mall_auth_data.name}:</p>
+          <p className="mall_name_heading">{get_main_name}:</p>
           <span>Facilities</span>
         </div>
         <div className="mm_horizontal_line"></div>
         <div className="facilities_cards_wrapp">
-          {get_facility_data.map((item, index) => {
+          {get_facility_data && get_facility_data.map((item, index) => {
             return (
               <FacilityCard
                 key={item.id}

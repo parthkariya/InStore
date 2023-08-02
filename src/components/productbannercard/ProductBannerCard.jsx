@@ -14,6 +14,8 @@ import { useMallContext } from "../../context/mall_context";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import axios from "axios";
+import Notification from "../../utils/Notification"
+
 import {
   ACCEPT_HEADER,
   add_store_cart,
@@ -221,30 +223,48 @@ const ProductBannerCard = ({
   // Update Product Banner Api
 
   const UpdateProductBanner = async () => {
-    const formdata = await new FormData();
-    await formdata.append("id", item.id);
-    await formdata.append("title", title);
-    for (var i = 0; i < regionidarray.length; i++) {
-      await formdata.append("region_id[" + i + "]", regionidarray[i].id);
-    }
-    for (var i = 0; i < mallidarray.length; i++) {
-      await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
-    }
-    await formdata.append("brand_id", BrandId);
-    await formdata.append("category_id", CategoryId);
-    await formdata.append("week_id", Week);
-    await formdata.append("region_child_id[0]", "");
-    if (files[0] !== undefined) {
-      await formdata.append("image", files[0]);
-    }
 
-    const data = await UpdateProductBoardApi(formdata);
-    if (data) {
-      if (data.success === 1) {
-        console.log("category-data", data);
-        setTab(1);
-        // getLeaderboard();
-        // window.location.reload();
+    if (title == "" || undefined) {
+      Notification("error", "Error!", "Please Enter Title!");
+      return;
+    } else if (mallidarray == "" || undefined) {
+      Notification("error", "Error!", "Please Select Mall!");
+    } else if (regionidarray == "" || undefined) {
+      Notification("error", "Error!", "Please Select Region!");
+    } else if (Week == "" || undefined) {
+      Notification("error", "Error!", "Please Select Week!");
+    } else if (BrandName == "" || undefined) {
+      Notification("error", "Error!", "Please Select Brand!");
+    } else if (Category == "" || undefined) {
+      Notification("error", "Error!", "Please Select Category!");
+    } else {
+      const formdata = await new FormData();
+      await formdata.append("id", item.id);
+      await formdata.append("title", title);
+      for (var i = 0; i < regionidarray.length; i++) {
+        await formdata.append("region_id[" + i + "]", regionidarray[i].id);
+      }
+      for (var i = 0; i < mallidarray.length; i++) {
+        await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
+      }
+      await formdata.append("brand_id", BrandId);
+      await formdata.append("category_id", CategoryId);
+      await formdata.append("week_id", Week);
+      await formdata.append("region_child_id[0]", "");
+      if (files[0] !== undefined) {
+        await formdata.append("image", files[0]);
+      }
+
+      const data = await UpdateProductBoardApi(formdata);
+      if (data) {
+        if (data.success === 1) {
+          console.log("category-data", data);
+          Notification("success", "Success!", "Product Banner Updated Successfully!");
+
+          setTab(1);
+          // getLeaderboard();
+          // window.location.reload();
+        }
       }
     }
   };
@@ -259,6 +279,7 @@ const ProductBannerCard = ({
     if (data) {
       if (data.success === 1) {
         console.log("mall-data", data);
+        Notification("success", "Success!", "Product Banner Deleted Successfully!");
         setTab(1);
         // getStore();
       }

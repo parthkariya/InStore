@@ -12,6 +12,7 @@ import makeAnimated from 'react-select/animated';
 import { useStoreContext } from '../../context/store_context';
 import { ACCEPT_HEADER, get_region_mall } from '../../utils/Constant';
 import axios from 'axios';
+import { IoChevronBack } from 'react-icons/io5';
 
 const animatedComponents = makeAnimated();
 const options = [
@@ -235,6 +236,7 @@ const AddProductBanner = ({ get_mall_auth_data, setTab }) => {
         <div className="mm_main_wrapp">
             <div className="leaderboard-sub-wrapp">
                 {/* LeaderBoard name start */}
+                <div className='edit-brand-back-iconbox' onClick={() => setTab(5)}><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div>
                 <div className="mall_name_wrapp mall_name_wrapp-spacebetween">
                     <div className="leaderboard-inner-namebox">
                         <p className="mall_name_heading">Add:</p>

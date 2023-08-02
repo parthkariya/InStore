@@ -45,8 +45,8 @@ const customStyles = {
 };
 
 const Navbar = ({
-  getcustomerDropdown,
-  setCustomerDropdown,
+  // getcustomerDropdown,
+  // setCustomerDropdown,
   // setRegisterCustomerOpen,
 }) => {
   const location = useLocation();
@@ -75,6 +75,8 @@ const Navbar = ({
   const [isAcceptTermRegisterCustomer, setIsAcceptTermRegisterCustomer] = useState(false);
   const [getrole, setrole] = useState();
   const [login, SetLogin] = useState('')
+  const [getcustomerDropdown, setCustomerDropdown] = useState(false);
+  // const [getregisterCustomerOpen, setRegisterCustomerOpen] = useState(false);
 
   const { setMallRegister, is_login, is_token, logoutUser, role } = useMallContext();
   const { RegisterCustomer } = useAuthContext();
@@ -426,7 +428,7 @@ const Navbar = ({
                   />
                 </Link>
                 <Link
-                  to={"/customer"}
+                  to={""}
                   onClick={() => setCustomerDropdown(!getcustomerDropdown)}
                 >
                   Account{" "}
@@ -460,6 +462,24 @@ const Navbar = ({
                       >
                         Customer
                       </Link>
+                      {login === 'true' && getrole == 2 ? <Link to="/profile-page"
+                        className="navbar-acc-menu-link"
+                      >
+                        Mall Dashboard
+                      </Link> : null}
+
+                      {login === 'true' && getrole == 3 ? <Link to="/branddashboard"
+                        className="navbar-acc-menu-link"
+                      >
+                        Brand Dashboard
+                      </Link> : null}
+
+                      {login === 'true' && getrole == 4 ? <Link to="/mallnearme"
+                        className="navbar-acc-menu-link"
+                      >
+                        Mall Near Me
+                      </Link> : null}
+
                       {login === false || login === null ?
                         <Link
                           className="navbar-acc-menu-link"
@@ -568,6 +588,24 @@ const Navbar = ({
               <Link to="/">Home</Link>
               <Link to="/about-instore">About InStore</Link>
               {/* <Link to="/mall">Mall </Link> */}
+              {login === 'true' && getrole == 2 ? <Link to="/profile-page"
+                className="navbar-acc-menu-link"
+              >
+                Mall Dashboard
+              </Link> : null}
+
+              {login === 'true' && getrole == 3 ? <Link to="/branddashboard"
+                className="navbar-acc-menu-link"
+              >
+                Brand Dashboard
+              </Link> : null}
+
+              {login === 'true' && getrole == 4 ? <Link to="/mallnearme"
+                className="navbar-acc-menu-link"
+              >
+                Mall Near Me
+              </Link> : null}
+
               <Link to="/mall">Mall Registration</Link>
               <Link to="/retailer">Brand Registration</Link>
 
@@ -588,15 +626,16 @@ const Navbar = ({
               </Link> */}
               {getaccountOpen && (
                 <div className="accunt_sec_wrapp">
-                  <Link onClick={() => setIsOpen3(true)}>Login</Link>
+                  {login === 'true' ? <></> : <Link onClick={() => setIsOpen3(true)}>Login</Link>}
+
                   {/* <Link onClick={() => setRegisterCustomerOpen(true)}>Sign Up</Link> */}
                   {/* <Link onClick={() => modalIsOpen(true)}>Sign Up</Link> */}
-                  <Link
+                  {login === 'true' ? <></> : <Link
                     className="navbar-acc-menu-link"
                     onClick={() => setRegisterCustomerOpen(true)}
                   >
                     Sign Up
-                  </Link>
+                  </Link>}
                   <Link>Help</Link>
                   {login === 'true' ? (<Link style={{ textAlign: "end", alignSelf: "end" }} onClick={logout}>Logout</Link>) : (<></>)}
                   {/* <Link onClick={logout}>Logout</Link> */}
@@ -698,7 +737,7 @@ const Navbar = ({
                 <a className="signup_terms_link">Privacy Policy</a>
               </p>
             </div>
-            <button className="signup_model_forgate">Forgate password?</button>
+            <button className="signup_model_forgate">Forgot password?</button>
           </div>
           <button
             className="btn btn-orange mb_16"
@@ -833,7 +872,7 @@ const Navbar = ({
           <button className="signup_modal_close" onClick={closeModal4}>
             <GrClose />
           </button>
-          <button className="btn btn4 mb_16">Forgate your password?</button>
+          <button className="btn btn4 mb_16">Forgot your password?</button>
           <div className="sign_input_wrapp">
             <label htmlFor="email">Email</label>
             <input type="email" name="" id="" />

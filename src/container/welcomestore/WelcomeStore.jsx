@@ -48,8 +48,8 @@ const WelcomeStore = ({ WcBtn, titie, des }) => {
 
   return (
     <div className="main_wrapp">
-      <div className="container welcome_store_wrapp">
-        <h1 className="h1">{titie ? titie : "Welcome to In-Store"}</h1>
+      <div className="container welcome_store_wrapp wel-sec-gap">
+        <h1 className="h1" style={{ marginBottom: "1rem" }}>{titie ? titie : "Welcome to In-Store"}</h1>
         <p>{des && des}</p>
         <div className="welcome_cards_warpp">
           {/* <Slider {...settings}> */}

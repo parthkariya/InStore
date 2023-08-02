@@ -3,6 +3,8 @@ import "./MallEventCard.css";
 import moment from "moment";
 import images from "../../constants/images";
 import { useMallContext } from "../../context/mall_context";
+import Notification from "../../utils/Notification"
+
 
 const MallEventCard = ({
   id,
@@ -31,6 +33,7 @@ const MallEventCard = ({
       if (data) {
         if (data.success === 1) {
           console.log("mall-data", data);
+          Notification("success", "Success!", "Event Deleted Successfully!");
           setTab(5);
           EventApi();
         }

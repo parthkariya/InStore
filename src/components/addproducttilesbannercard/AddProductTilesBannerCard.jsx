@@ -10,6 +10,7 @@ import { useMallContext } from '../../context/mall_context';
 import { useStoreContext } from '../../context/store_context';
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
+import Notification from "../../utils/Notification"
 
 
 const animatedComponents = makeAnimated();
@@ -48,7 +49,7 @@ const AddProductTilesBannerCard = ({ item, mindx, openMallModal,
         // setDiscription(item.description ? item.description : item.description);
         // setPrice(item.price ? item.price : item.price);
         // setWeek(item.title ? item.title : "");
-
+        console.log("get brand is", get_brand_data);
     }, [])
 
 
@@ -92,36 +93,57 @@ const AddProductTilesBannerCard = ({ item, mindx, openMallModal,
 
     const AddProductTilesBanner = async () => {
 
+
+
         console.log("test");
 
-        const formdata = await new FormData();
-        // await formdata.append("id", item.id)
-        await formdata.append("title", title)
-        for (var i = 0; i < regionidarray.length; i++) {
-            await formdata.append("region_id[" + i + "]", regionidarray[i].id);
-        }
-        for (var i = 0; i < mallidarray.length; i++) {
-            await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
-        } await formdata.append("brand_id", BrandName)
-        await formdata.append("category_id", Category)
-        await formdata.append("price", Price)
-        await formdata.append("description", Description)
-        await formdata.append("week_id", "")
-        await formdata.append("region_child_id[0]", "")
-        if (files[0] !== undefined) {
-            await formdata.append("image", files[0]);
-        }
+        if (title == "" || undefined) {
+            Notification("error", "Error!", "Please Enter Title!");
+            return;
+        } else if (mallidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Mall!");
+        } else if (gatweek == "" || undefined) {
+            Notification("error", "Error!", "Please Select Week!");
+        } else if (regionidarray == "" || undefined) {
+            Notification("error", "Error!", "Please Select Region!");
+        } else if (BrandName == "" || undefined) {
+            Notification("error", "Error!", "Please Select Brand!");
+        } else if (Price == "" || undefined) {
+            Notification("error", "Error!", "Please Enter Price!");
+        } else if (Description == "" || undefined) {
+            Notification("error", "Error!", "Please Enter Description!");
+        } else {
+            const formdata = await new FormData();
+            // await formdata.append("id", item.id)
+            await formdata.append("title", title)
+            for (var i = 0; i < regionidarray.length; i++) {
+                await formdata.append("region_id[" + i + "]", regionidarray[i].id);
+            }
+            for (var i = 0; i < mallidarray.length; i++) {
+                await formdata.append("mall_id[" + i + "]", mallidarray[i].id);
+            } await formdata.append("brand_id", BrandName)
+            await formdata.append("category_id", Category)
+            await formdata.append("price", Price)
+            await formdata.append("description", Description)
+            await formdata.append("week_id", gatweek)
+            await formdata.append("region_child_id[0]", "")
+            if (files[0] !== undefined) {
+                await formdata.append("image", files[0]);
+            }
 
 
 
-        console.log("-=-=-=->", formdata);
-        const data = await CreateProductTileApi(formdata);
-        if (data) {
-            if (data.success === 1) {
-                console.log("category-data", data);
-                setTab(1);
-                // getLeaderboard();
-                // window.location.reload();
+            console.log("-=-=-=->", formdata);
+            const data = await CreateProductTileApi(formdata);
+            if (data) {
+                if (data.success === 1) {
+                    console.log("category-data", data);
+                    Notification("success", "Success!", "Product Tiles Added Successfully!");
+
+                    setTab(1);
+                    // getLeaderboard();
+                    // window.location.reload();
+                }
             }
         }
     }

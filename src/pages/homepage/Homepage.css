@@ -186,6 +186,10 @@
 }
 
 
+.home-page-sec-gap-wel {
+  margin-top: 1rem;
+}
+
 /* modal 4 media query */
 
 @media screen and (max-width:500px) {

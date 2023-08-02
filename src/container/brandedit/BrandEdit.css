@@ -2,6 +2,8 @@
     display: flex;
     gap: 5px;
     align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
 }
 
 .edit-brand-back-icon {

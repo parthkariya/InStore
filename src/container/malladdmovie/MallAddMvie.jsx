@@ -6,12 +6,15 @@ import { useDropzone } from "react-dropzone";
 import { MallHero } from "../../components";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import axios from "axios";
+import Notification from "../../utils/Notification"
+
 import {
     ACCEPT_HEADER,
     create_movie,
     get_age_restriction,
     get_genre,
 } from "../../utils/Constant";
+import { IoChevronBack } from "react-icons/io5";
 
 const MallAddMvie = ({ get_mall_auth_data, setTab }) => {
     const { UpdateMallEvent, getMallEvent } = useMeventContext();
@@ -72,32 +75,51 @@ const MallAddMvie = ({ get_mall_auth_data, setTab }) => {
     const createmovie = async () => {
         const token = JSON.parse(localStorage.getItem("is_token"));
 
-        const formdata = new FormData();
-        await formdata.append("title", title);
-        await formdata.append("age_restrict_id", selctage);
-        await formdata.append("genre_id", selctgenre);
-        await formdata.append("booking_url", bookurl);
-        await formdata.append("movie_image", files[0]);
-        await formdata.append("terms_condition", isAcceptTerm === true ? 1 : 0);
+        if (title == "" || title == undefined) {
+            Notification("error", "Error", "Please Enter Movie Title");
+            return;
+        } else if (selctage == "" || selctage == undefined) {
+            Notification("error", "Error", "Please Select Age");
+            return;
+        } else if (selctgenre == "" || selctgenre == undefined) {
+            Notification("error", "Error", "Please Select Movie Genre");
+            return;
+        } else if (bookurl == "" || bookurl == undefined) {
+            Notification("error", "Error", "Please Enter Booking URL");
+            return;
+        }
+        else {
+            const formdata = new FormData();
+            await formdata.append("title", title);
+            await formdata.append("age_restrict_id", selctage);
+            await formdata.append("genre_id", selctgenre);
+            await formdata.append("booking_url", bookurl);
+            if (files[0] !== undefined) {
+                await formdata.append("movie_image", files[0]);
+            }
+            await formdata.append("terms_condition", isAcceptTerm === true ? 1 : 0);
 
-        axios
-            .post(create_movie, formdata, {
-                headers: {
-                    Accept: ACCEPT_HEADER,
-                    Authorization: "Bearer " + token,
-                },
-            })
-            .then((res) => {
-                console.log("create_movie", JSON.stringify(res.data, null, 2));
-                if (res.data.success == 1) {
-                    setTab(17);
-                } else {
-                    null;
-                }
-            })
-            .catch((err) => {
-                console.log("err11", err);
-            });
+            axios
+                .post(create_movie, formdata, {
+                    headers: {
+                        Accept: ACCEPT_HEADER,
+                        Authorization: "Bearer " + token,
+                    },
+                })
+                .then((res) => {
+                    console.log("create_movie", JSON.stringify(res.data, null, 2));
+                    if (res.data.success == 1) {
+                        Notification("success", "Success!", "Movie Added Successfully!");
+                        setTab(17);
+                    } else {
+                        null;
+                    }
+                })
+                .catch((err) => {
+                    console.log("err11", err);
+                });
+        }
+
     };
 
     const getAge = async () => {
@@ -150,6 +172,7 @@ const MallAddMvie = ({ get_mall_auth_data, setTab }) => {
         <>
             <MallHero get_mall_auth_data={get_mall_auth_data} />
             <div className="mm_main_wrapp">
+                <div className='edit-brand-back-iconbox' onClick={() => setTab(17)}><IoChevronBack className='edit-brand-back-icon' /> <p className='edit-brand-back-txt'>Back</p></div>
                 {/* mall management name start */}
                 <div className="mall_name_wrapp">
                     <p className="mall_name_heading">

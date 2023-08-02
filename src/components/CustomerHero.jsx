@@ -1,15 +1,15 @@
 import React from "react";
 import images from "../constants/images";
 
-const CustomerHero = ({ getsingalmalldata }) => {
+const CustomerHero = ({ getsingalmalldata, getbdetalis }) => {
   console.log("aaaaaa", getsingalmalldata);
   return (
     <div className="mall_hero_main_wrapp">
       <img
         src={
-          getsingalmalldata.banner_mall_path === null
+          getbdetalis.banner_store_path === null
             ? images.mall_hero_banner
-            : getsingalmalldata.banner_mall_path
+            : getbdetalis.banner_store_path
         }
         alt=""
         className="mall_hero_banner_img"
@@ -17,9 +17,9 @@ const CustomerHero = ({ getsingalmalldata }) => {
       <div className="mall_hero_logo_wrapp">
         <img
           src={
-            getsingalmalldata.shopping_center_thumbnail_mall_path === null
+            getbdetalis.store_logo_path === null
               ? images.mall_hero_logo
-              : getsingalmalldata.shopping_center_thumbnail_mall_path
+              : getbdetalis.store_logo_path
           }
           alt=""
         />

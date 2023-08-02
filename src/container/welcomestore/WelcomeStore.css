@@ -8,7 +8,7 @@
 
 .welcome_cards_warpp {
     width: -webkit-fill-available;
-    margin: 2rem auto;
+    margin: 4rem auto;
     /* display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -30,19 +30,23 @@
     flex-wrap: wrap;
 }
 
+.wel-sec-gap {
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 700px) {
     .welcome_cards_warpp {
         padding: 0rem 1rem;
     }
 
     .slick-prev {
-        left: -16px !important;
+        left: 25px !important;
         /* background: #0d89f6 !important; */
         z-index: 10 !important;
     }
 
     .slick-next {
-        right: -10px !important;
+        right: 25px !important;
         /* background: #0d89f6 !important; */
         z-index: 10 !important;
     }

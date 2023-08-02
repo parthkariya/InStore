@@ -202,7 +202,7 @@
 
 
 .mall-acc-manager-upl-img-part {
-    width: 20% !important;
+    /* width: 20% !important; */
 }
 
 @media screen and (max-width:1500px) {

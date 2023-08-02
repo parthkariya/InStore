@@ -27,6 +27,7 @@ import {
   StoreCheckout,
   StoreDirectory,
   StoreThankyou,
+  UploadMultipleBrand,
   UploadSd,
   UploadStoreDirectory,
 } from "../../container";
@@ -112,8 +113,10 @@ const BrandDashboard = () => {
 
           <RetailerNavbar setTab={setTab} />
 
+
           <div className="profilepage_main_wrapp">
             {/* side-bar start  */}
+
             <div
               style={{
                 display: "flex",
@@ -219,19 +222,19 @@ const BrandDashboard = () => {
                 </div> */}
                   </button>
 
-                  {/* <button
-                style={{
-                  background: gettab === 8 ? "#ff8b00" : "#ffb103",
-                  fontWeight: gettab === 8 ? "700" : "500",
-                }}
-                onClick={() => setTab(8)}
-                className="profile_sidebar_sig_btn"
-              >
-                My Brand in Mall
-                <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div>
-              </button> */}
+                  <button
+                    style={{
+                      background: gettab === 8 ? "#ff8b00" : "#ffb103",
+                      fontWeight: gettab === 8 ? "700" : "500",
+                    }}
+                    onClick={() => setTab(8)}
+                    className="profile_sidebar_sig_btn"
+                  >
+                    My Brand in Mall
+                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                      <FiChevronLeft color="#fff" size={20} />
+                    </div> */}
+                  </button>
 
                   <button
                     style={{
@@ -260,19 +263,19 @@ const BrandDashboard = () => {
                   <FiChevronLeft color="#fff" size={20} />
                 </div>
               </button>
-              <button
-                style={{
-                  background: gettab === 11 ? "#ff8b00" : "#ffb103",
-                  fontWeight: gettab === 11 ? "700" : "500",
-                }}
-                onClick={() => setTab(11)}
-                className="profile_sidebar_sig_btn"
-              >
-                Store Thankyou
-                <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div>
-              </button> */}
+                  <button
+                    style={{
+                      background: gettab === 11 ? "#ff8b00" : "#ffb103",
+                      fontWeight: gettab === 11 ? "700" : "500",
+                    }}
+                    onClick={() => setTab(11)}
+                    className="profile_sidebar_sig_btn"
+                  >
+                    Store Thankyou
+                    <div className="profile_sidebar_sig_btn_right_arrow">
+                      <FiChevronLeft color="#fff" size={20} />
+                    </div>
+                  </button> */}
                   <button
                     style={{
                       background: gettab === 12 ? "#ff8b00" : "#ffb103",
@@ -301,6 +304,7 @@ const BrandDashboard = () => {
                 </div>
               </div>
             </div>
+
             {/* side-bar end  */}
 
             {/* main-cotainer start */}
@@ -401,6 +405,14 @@ const BrandDashboard = () => {
               )}
               {gettab === 23 && (
                 <AddProductTilesBanner
+                  setTab={setTab}
+                  get_mall_auth_data={get_store_data}
+                  getTab={gettab}
+                />
+              )}
+
+              {gettab === 24 && (
+                <UploadMultipleBrand
                   setTab={setTab}
                   get_mall_auth_data={get_store_data}
                   getTab={gettab}

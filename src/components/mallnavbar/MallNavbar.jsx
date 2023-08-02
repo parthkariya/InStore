@@ -399,6 +399,12 @@ const MallNavbar = ({ setTab }) => {
                                             >
                                                 Customer
                                             </Link>
+                                            {login === 'true' || getrole == 2 ? <Link to="/profile-page"
+                                                className="navbar-acc-menu-link"
+                                            >
+                                                Mall Dashboard
+                                            </Link> : null}
+
                                             {login === false || login === null ?
                                                 <Link
                                                     className="navbar-acc-menu-link"
@@ -508,9 +514,28 @@ const MallNavbar = ({ setTab }) => {
                     {getsidebarOpen && (
                         <div className="nav_sidebar_wrapp">
                             <Link to="/">Home</Link>
+                            {login === 'true' && getrole == 2 ? <Link to="/profile-page"
+                                className="navbar-acc-menu-link"
+                            >
+                                Mall Dashboard
+                            </Link> : null}
+
+                            {login === 'true' && getrole == 3 ? <Link to="/branddashboard"
+                                className="navbar-acc-menu-link"
+                            >
+                                Brand Dashboard
+                            </Link> : null}
+
+                            {login === 'true' && getrole == 4 ? <Link to="/mallnearme"
+                                className="navbar-acc-menu-link"
+                            >
+                                Mall Near Me
+                            </Link> : null}
+
                             <Link to="/about-instore">About InStore</Link>
                             <Link to="/retailer">Brand Registration</Link>
                             <Link to="/customer">Customer Registraion</Link>
+
                             {login === "true" || getrole === 2 ? <></> : <Link onClick={() => { setIsOpen3(true); setSidebarOpen(!getsidebarOpen); }}>Login</Link>}
                             {/* <Link to="/mall">Mall </Link> */}
                             {/* <Link to="/retailer">Brand Registration</Link> */}
@@ -535,29 +560,41 @@ const MallNavbar = ({ setTab }) => {
                 <IoIosLogOut size={20} />
               </Link> */}
                             {getaccountOpen && (
-                                <div className="accunt_sec_wrapp">
-                                    <Link onClick={() => { setTab(1); setSidebarOpen(!getsidebarOpen); }}>My Profile</Link>
-                                    <Link onClick={() => { setTab(2); setSidebarOpen(!getsidebarOpen); }}>Acccount Setting</Link>
-                                    <Link onClick={() => { setTab(3); setSidebarOpen(!getsidebarOpen); }}>Brands</Link>
-                                    <Link onClick={() => { setTab(4); setSidebarOpen(!getsidebarOpen); }}>Eateries</Link>
-                                    <Link onClick={() => { setTab(17); setSidebarOpen(!getsidebarOpen); }}>Movies</Link>
-                                    <Link onClick={() => { setTab(5); setSidebarOpen(!getsidebarOpen); }}>Events</Link>
-                                    <Link onClick={() => { setTab(6); setSidebarOpen(!getsidebarOpen); }}>Facilities</Link>
-                                    <Link onClick={() => { setTab(7); setSidebarOpen(!getsidebarOpen); }}>Contact Details</Link>
-                                    {/* <Link onClick={() => setTab(8)}></Link> */}
+                                <>
+                                    {login === 'true' && getrole == 2 ?
 
-                                    {/* <Link onClick={() => setRegisterCustomerOpen(true)}>Sign Up</Link> */}
-                                    {login === false || login === null ?
-                                        <Link onClick={() => { setIsOpen(true); setSidebarOpen(!getsidebarOpen); }}>Sign Up</Link> :
-                                        null}
-                                    {login === "true" ? (<Link onClick={logout}>Logout</Link>) : (<></>)}
-                                    <Link>Help</Link>
+                                        <div className="accunt_sec_wrapp">
+
+                                            <Link onClick={() => { setTab(1); setSidebarOpen(!getsidebarOpen); }}>My Profile</Link>
+                                            <Link onClick={() => { setTab(2); setSidebarOpen(!getsidebarOpen); }}>Acccount Setting</Link>
+                                            <Link onClick={() => { setTab(3); setSidebarOpen(!getsidebarOpen); }}>Brands</Link>
+                                            <Link onClick={() => { setTab(4); setSidebarOpen(!getsidebarOpen); }}>Eateries</Link>
+                                            <Link onClick={() => { setTab(17); setSidebarOpen(!getsidebarOpen); }}>Movies</Link>
+                                            <Link onClick={() => { setTab(5); setSidebarOpen(!getsidebarOpen); }}>Events</Link>
+                                            <Link onClick={() => { setTab(6); setSidebarOpen(!getsidebarOpen); }}>Facilities</Link>
+                                            <Link onClick={() => { setTab(7); setSidebarOpen(!getsidebarOpen); }}>Contact Details</Link>
+                                            {/* <Link onClick={() => setTab(8)}></Link> */}
+
+                                            {/* <Link onClick={() => setRegisterCustomerOpen(true)}>Sign Up</Link> */}
+                                            {login === false || login === null ?
+                                                <Link onClick={() => { setIsOpen(true); setSidebarOpen(!getsidebarOpen); }}>Sign Up</Link> :
+                                                null}
+                                            {login === "true" ? (<Link onClick={logout}>Logout</Link>) : (<></>)}
+                                            <Link>Help</Link>
 
 
-                                    {/* <Link> - Events</Link>
+                                            {/* <Link> - Events</Link>
                   <Link> - Facilities</Link>
                   <Link> Contact Details</Link> */}
-                                </div>
+                                        </div> :
+                                        <>
+                                            {login === "true" ? (<Link onClick={logout}>Logout</Link>) : (<></>)}
+                                            <Link>Help</Link>
+
+                                        </>}
+                                </>
+
+
                             )}
                         </div>
                     )}
@@ -616,7 +653,7 @@ const MallNavbar = ({ setTab }) => {
                                 <a className="signup_terms_link">Privacy Policy</a>
                             </p>
                         </div>
-                        <button className="signup_model_forgate">Forgate password?</button>
+                        <button className="signup_model_forgate">Forgot password?</button>
                     </div>
                     <button
                         className="btn btn-orange mb_16"

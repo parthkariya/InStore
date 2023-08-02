@@ -10,7 +10,9 @@ import after_login_img from "../assets/images/after_login_img.jpg";
 import brandlogo from "../assets/logos/home/brandlogo.png";
 import hero_logo from "../assets/logos/home/hero_logo.png";
 import profile_logo from "../assets/logos/home/profile_logo.png";
-import hero_banner from "../assets/images/home/hero_banner.png";
+import hero_banner from "../assets/images/hero_banner.webp";
+import hero_banner2 from "../assets/images/hero_banner2.webp";
+
 import wcard_1 from "../assets/logos/home/wcard_1.png";
 import wcard_2 from "../assets/logos/home/wcard_2.png";
 import wcard_3 from "../assets/logos/home/wcard_3.png";
@@ -25,10 +27,17 @@ import play_store_logo from "../assets/logos/home/play_store_logo.png";
 import side_logo from "../assets/logos/home/side_logo.png";
 import registermall from "../assets/images/home/registermall.png";
 import mall_home_hero_banner from "../assets/images/home/mall_home_hero_banner.jpg";
+import guess_brand_logo from "../assets/images/stores-logos/guesbrandlogo.png";
+import app_store_logoo from "../assets/images/home/app_store_logo.png";
+import play_store_logoo from "../assets/images/home/play_store_logo.png";
+import movies_card2 from "../assets/images/movies_card2.png";
+import movies_card3 from "../assets/images/movies_card3.png";
+import movies_card4 from "../assets/images/movies_card4.png";
+import movies_card5 from "../assets/images/home/play_store_logo.png";
 
 // about
 
-import about_hero from "../assets/images/about/about_hero.jpg";
+import about_hero from "../assets/images/about_hero.webp";
 import about_1 from "../assets/images/about/about_1.png";
 import about_2 from "../assets/images/about/about_2.png";
 import about_3 from "../assets/images/about/about_3.png";
@@ -110,10 +119,10 @@ import movies_card from "../assets/images/movies_card.png";
 import cart_icon from "../assets/logos/home/cart-icon.jpeg";
 
 // Brand Page Hero
-import brand_page_hero from "../assets/images/brand-page-hero.jpeg";
+import brand_page_hero from "../assets/images/brand-page-hero.webp";
 
 // Brand Page Hero
-import mall_home_page from "../assets/images/mall_home_page.png";
+import mall_home_page from "../assets/images/mall_home_page.webp";
 import heart_orange from "../assets/logos/heart_orange.png";
 import orangestar from "../assets/logos/orangestar.png";
 import graystar from "../assets/logos/graystar.png";
@@ -227,4 +236,12 @@ export default {
   heart_orange,
   orangestar,
   graystar,
+  guess_brand_logo,
+  app_store_logoo,
+  play_store_logoo,
+  movies_card2,
+  movies_card3,
+  movies_card4,
+  movies_card5,
+  hero_banner2,
 };

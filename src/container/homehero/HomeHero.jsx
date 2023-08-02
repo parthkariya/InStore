@@ -5,12 +5,15 @@ import images from '../../constants/images';
 const HomeHero = ({ img }) => {
   return (
     <div
-      className="homehero_main_wrapp"
+      className="homehero_main_wrapp bg-home-grad"
       style={{
         backgroundImage: `url(${img})`,
-        backgroundPosition: "center",
+        backgroundPosition: "inherit",
         backdropFilter: 'blur(2px)',
-        WebkitBackdropFilter: 'revert-layer'
+        WebkitBackdropFilter: 'revert-layer',
+        backgroundSize: "cover",
+
+
       }}
     >
       {/* <img src={images.hero_banner} alt="" /> */}
@@ -22,8 +25,8 @@ const HomeHero = ({ img }) => {
             shopping solutions and better results
           </p>
           <div className="apps_logos_wrapp">
-            <img src={images.play_store_logo} alt="play store logo" />
-            <img src={images.app_store_logo} alt="app store logo" />
+            <img src={images.play_store_logoo} alt="play store logo" />
+            <img src={images.app_store_logoo} alt="app store logo" />
           </div>
         </div>
       </div>

@@ -22,6 +22,7 @@ import {
   MallProfilePart,
   RetailerTypeSheet,
   StoreDirectory,
+  UploadEateryDirectory,
   UploadMovieDirectory,
   UploadSd,
   UploadStoreDirectory,
@@ -50,6 +51,7 @@ const ProfilePage = () => {
   const [getsingleStoreData, setSingleStoreData] = useState({});
   const [getsinglefacilitydata, setsinglefacilitydata] = useState({});
   const [sidebaropen, setSidebarOpen] = useState(true);
+  const [mallheadname, setMallheadname] = useState("");
 
   // store api start
   const storePerPage = 3;
@@ -77,6 +79,11 @@ const ProfilePage = () => {
 
 
   console.log("get_mall_auth_data", get_mall_auth_data);
+
+  useEffect(() => {
+    setMallheadname(get_mall_auth_data.name);
+
+  }, [])
 
   useEffect(() => {
     if (
@@ -248,143 +255,148 @@ const ProfilePage = () => {
             <div className="loader"></div>
           </div>
         ) : (
-          <div className="profilepage_main_wrapp">
+          <div className="profilepage_main_wrapp profilepage_slider_transition">
             {/* side-bar start  */}
-            <div
-              style={{
-                display: "flex",
-                gap: "5px",
+            <div style={{ backgroundColor: "#E5E4E2", minHeight: "100vh" }}>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "5px",
 
-                position: sidebaropen === true ? null : "absolute",
+                  position: sidebaropen === true ? null : "absolute",
 
-                left: sidebaropen === true ? null : "-400px",
-              }}
-              className="profilepage_sidebarr"
-            >
-              <div className="profile_sidebar_wrapp">
-                <div style={{ position: "relative", minWidth: "400px" }}>
-                  <button
-                    style={{
-                      background: gettab === 1 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 1 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(1)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    My Profile
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background: gettab === 2 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 2 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(2)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    Account Setting
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background:
-                        gettab === 3 || gettab === 9 || gettab === 10
-                          ? "#ff8b00"
-                          : "#ffb103",
-                      fontWeight:
-                        gettab === 3 || gettab === 9 || gettab === 10
-                          ? "700"
-                          : "500",
-                    }}
-                    onClick={() => setTab(3)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    &nbsp;&nbsp;&nbsp; - Brands
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background:
-                        gettab === 4 || gettab === 8 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 4 || gettab === 8 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(4)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    &nbsp;&nbsp;&nbsp; - Eateries
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background:
-                        gettab === 17 || gettab === 8 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 17 || gettab === 8 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(17)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    &nbsp;&nbsp;&nbsp; - Movies
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background: gettab === 5 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 5 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(5)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    &nbsp;&nbsp;&nbsp; - Events
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background: gettab === 6 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 6 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(6)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    &nbsp;&nbsp;&nbsp; - Facilities
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-                  <button
-                    style={{
-                      background: gettab === 7 ? "#ff8b00" : "#ffb103",
-                      fontWeight: gettab === 7 ? "700" : "500",
-                    }}
-                    onClick={() => setTab(7)}
-                    className="profile_sidebar_sig_btn"
-                  >
-                    Contact Details
-                    {/* <div className="profile_sidebar_sig_btn_right_arrow">
-                  <FiChevronLeft color="#fff" size={20} />
-                </div> */}
-                  </button>
-
-                  <div>
-                    <div
-                      className="profile_sidebar_sig_btn_right_arrow"
-                      onClick={() => {
-                        setSidebarOpen(!sidebaropen);
-                        console.log("check", sidebaropen);
+                  left: sidebaropen === true ? null : "-400px",
+                }}
+                className="profilepage_sidebarr profilepage_slider_transition"
+              >
+                <div className="profile_sidebar_wrapp profilepage_slider_transition">
+                  <div style={{ position: "relative", minWidth: "400px" }} className="profilepage_slider_transition">
+                    <button
+                      style={{
+                        background: gettab === 1 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 1 ? "700" : "500",
                       }}
+                      onClick={() => setTab(1)}
+                      className="profile_sidebar_sig_btn"
                     >
-                      <FiChevronLeft color="#fff" size={20} />
+                      My Profile
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background: gettab === 2 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 2 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(2)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      Account Setting
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background:
+                          gettab === 3 || gettab === 9 || gettab === 10
+                            ? "#ff8b00"
+                            : "#ffb103",
+                        fontWeight:
+                          gettab === 3 || gettab === 9 || gettab === 10
+                            ? "700"
+                            : "500",
+                      }}
+                      onClick={() => setTab(3)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      &nbsp;&nbsp;&nbsp; - Brands
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background:
+                          gettab === 4 || gettab === 8 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 4 || gettab === 8 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(4)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      &nbsp;&nbsp;&nbsp; - Eateries
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background:
+                          gettab === 17 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 17 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(17)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      &nbsp;&nbsp;&nbsp; - Movies
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background: gettab === 5 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 5 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(5)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      &nbsp;&nbsp;&nbsp; - Events
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background: gettab === 6 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 6 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(6)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      &nbsp;&nbsp;&nbsp; - Facilities
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+                    <button
+                      style={{
+                        background: gettab === 7 ? "#ff8b00" : "#ffb103",
+                        fontWeight: gettab === 7 ? "700" : "500",
+                      }}
+                      onClick={() => setTab(7)}
+                      className="profile_sidebar_sig_btn"
+                    >
+                      Contact Details
+                      {/* <div className="profile_sidebar_sig_btn_right_arrow">
+                  <FiChevronLeft color="#fff" size={20} />
+                </div> */}
+                    </button>
+
+
+
+
+                    <div className="profilepage_slider_transition">
+                      <div
+                        className="profile_sidebar_sig_btn_right_arrow profilepage_slider_transition"
+                        onClick={() => {
+                          setSidebarOpen(!sidebaropen);
+                          console.log("check", sidebaropen);
+                        }}
+                      >
+                        <FiChevronLeft color="#fff" size={20} />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -405,7 +417,7 @@ const ProfilePage = () => {
                 />
               )}
               {gettab === 2 && (
-                <MallManagement get_mall_auth_data={get_mall_auth_data} sidebaropen={sidebaropen} />
+                <MallManagement get_mall_auth_data={get_mall_auth_data} sidebaropen={sidebaropen} setTab={setTab} />
               )}
               {gettab === 3 && (
                 <StoreDirectory
@@ -454,6 +466,7 @@ const ProfilePage = () => {
                   setfacility_id={setfacility_id}
                   getsinglefacilitydata={getsinglefacilitydata}
                   setsinglefacilitydata={setsinglefacilitydata}
+                  mallheadname={mallheadname}
                 />
               )}
               {gettab === 7 && (
@@ -464,6 +477,7 @@ const ProfilePage = () => {
                   getsingleStoreData={getsingleStoreData}
                   getstore_is={getstore_is}
                   setTab={setTab}
+                  get_mall_auth_data={get_mall_auth_data}
                 />
               )}
               {gettab === 9 && (
@@ -479,6 +493,7 @@ const ProfilePage = () => {
                 <UploadStoreDirectory
                   getsingleStoreData={getsingleStoreData}
                   get_mall_auth_data={get_mall_auth_data}
+                  setTab={setTab}
                 />
               )}
               {gettab === 11 && (
@@ -496,6 +511,8 @@ const ProfilePage = () => {
                   getfacility_id={getfacility_id}
                   getsinglefacilitydata={getsinglefacilitydata}
                   setTab={setTab}
+                  mallheadname={mallheadname}
+
                 />
               )}
               {gettab === 13 && (
@@ -572,7 +589,21 @@ const ProfilePage = () => {
                   get_mall_auth_data={get_mall_auth_data}
                   getstore_is={getstore_is}
                 />
+
+
               )}
+
+              {gettab === 34 && (
+                <UploadEateryDirectory
+                  getsingleStoreData={getsingleStoreData}
+                  get_mall_auth_data={get_mall_auth_data}
+                  getstore_is={getstore_is}
+                  setTab={setTab}
+                />
+
+
+              )}
+
             </div>
             {/* main-cotainer end */}
           </div>

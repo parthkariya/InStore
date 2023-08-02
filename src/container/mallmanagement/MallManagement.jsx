@@ -6,8 +6,10 @@ import { useMallContext } from "../../context/mall_context";
 import { MallHeroEdit } from "../../components";
 import images from "../../constants/images";
 import { ACCEPT_HEADER, get_mall_master } from "../../utils/Constant";
+import Notification from "../../utils/Notification"
+
 import axios from "axios";
-const MallManagement = ({ get_mall_auth_data, sidebaropen }) => {
+const MallManagement = ({ get_mall_auth_data, sidebaropen, setTab }) => {
   const { UpdateMall } = useMallContext();
   const regEx =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -238,7 +240,7 @@ const MallManagement = ({ get_mall_auth_data, sidebaropen }) => {
   const thumbs2 = files2.map((file) => (
     <img
       src={file.preview}
-      style={{ width: "100%", height: "100%", maxHeight: "175px" }}
+      style={{ width: "100%", height: "100%", }}
       className="img-fluid"
       alt="file"
     />
@@ -356,7 +358,10 @@ const MallManagement = ({ get_mall_auth_data, sidebaropen }) => {
       const data = await UpdateMall(formdata);
       if (data) {
         if (data.success === 1) {
+          Notification("success", "Success!", "Account Setting Updated Successfully!");
+          setTab(1);
           console.log("mall-data", data);
+
         }
       }
     }

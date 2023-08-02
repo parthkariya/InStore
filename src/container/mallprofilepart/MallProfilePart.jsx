@@ -47,7 +47,7 @@ const MallProfilePart = ({ setTab, get_mall_auth_data, sidebaropen }) => {
         </div>
 
         {/* profile cards wrapp start */}
-        <div className="mallpp_part2 mallpp_part2-mall-side-max-width" >
+        <div className="mallpp_part2 mallpp_part2-mall-side-max-width mall-profile-gap" >
           {/* single cards start */}
           <div
             className="mallpp_part2_card"

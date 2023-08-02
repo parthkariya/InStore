@@ -27,8 +27,11 @@ const MallMovieCard = ({
             .then((res) => {
                 console.log("ggg", JSON.stringify(res.data, null, 2));
                 if (res.data.success == 1) {
+                    Notification("success", "Success!", "Movie Deleted Successfully!");
+
                     getmovielist();
                 } else {
+
                     null;
                 }
             })
@@ -78,7 +81,7 @@ const MallMovieCard = ({
                         {" "}
                         {item.genres ? item.genres.name : ""}{" "}
                     </p>
-                    <button className="movies-card-btn btn btn-black">Book now</button>
+                    <a href={item.booking_url} className="movies-card-btn btn btn-black" target="_blank">Book now</a>
                 </div>
             </div>
         </>
